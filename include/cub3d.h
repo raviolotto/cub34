@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/06 16:51:23 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/07 16:40:19 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int		parser(int ac, char **av, t_data *data);
 char	*super_strjoin(char const *s1, char const *s2);
 int		check_info(char *str);
 void	print_matrix(char **matrix);
+int		check_map(t_data *map);
 
 #endif

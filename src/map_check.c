@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:22:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/06 17:36:20 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/07 16:39:49 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	read_data(char *name, t_data *data)
 	}
 	data->map = ft_split(infos, '\n');
 	free(infos);
+	if(check_map(data) == 1)
+		return(write(2, "error\ninvalid map\n", 18), 1);
 	print_matrix(data->map);
 	print_matrix(data->info);
 	return (0);
