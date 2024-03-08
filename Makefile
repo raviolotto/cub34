@@ -6,7 +6,7 @@
 #    By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2024/03/07 16:50:53 by jcardina         ###   ########.fr        #
+#    Updated: 2024/03/08 14:56:01 by jcardina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ $(NAME) : $(OBJ)
 	make -C lib/ft_printf
 #	$(CC) $(OBJ) $(FLAGS) $(LIBFT) $(PRINTF) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 	$(CC) $(OBJ) $(FLAGS) $(LIBFT) $(PRINTF) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
-	@echo "\033[32mmeow compiled\033[0m"
+	@echo "\033[32mcubitron compiled\033[0m"
 clean:
 	make clean -C lib/libft
 	make clean -C lib/ft_printf

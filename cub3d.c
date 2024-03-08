@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:18:50 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/05 17:16:30 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/08 14:51:16 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int main(int ac, char **av)
 	t_data data;
 	if(parser(ac, av, &data) == 1)
 	{
-		printf("error wrong input");
+		printf(":(\n");
+		free_all(&data);
 		return(0);
 	}
 }

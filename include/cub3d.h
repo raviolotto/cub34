@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/07 16:40:19 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/08 17:17:17 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ char	*super_strjoin(char const *s1, char const *s2);
 int		check_info(char *str);
 void	print_matrix(char **matrix);
 int		check_map(t_data *map);
+void	free_all(t_data *data);
+int		check_info2(char **info);
 
 #endif

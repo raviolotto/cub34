@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:54:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/06 17:46:35 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/08 17:34:32 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,30 @@ char	*super_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-// void	print_matrix(char **matrix)
-// {
-// 	while(*matrix)
-// 	{
-// 		printf("%s\n", *matrix);
-// 		matrix++;
-// 	}
-// }
-
 void	print_matrix(char **matrix)
 {
 	while(*matrix)
 	matrix += (printf("%s\n", *matrix) * 0 + 1);
 }
 
+void	free_matrix(char **matrix)
+{
+	size_t	i;
+
+	i = 0;
+	if(*matrix == NULL);
+		return;
+	while (matrix[i] != NULL)
+	{
+		free (matrix[i]);
+		i++;
+	}
+	free (matrix);
+}
+
+
+void	free_all(t_data *data)
+{
+	free_matrix(data->info);
+	free_matrix(data->map);
+}
