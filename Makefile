@@ -6,7 +6,7 @@
 #    By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2024/03/08 14:56:01 by jcardina         ###   ########.fr        #
+#    Updated: 2024/03/12 15:37:51 by jcardina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ src = \
 	cub3d.c\
 	./src/map_check.c\
 	./src/map_check1.c\
+	./src/info_utils.c\
 	./src/utils.c\
 	./src/info_check.c\
 	./lib/gnl/get_next_line.c\

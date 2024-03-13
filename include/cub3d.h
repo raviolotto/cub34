@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/08 17:17:17 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/13 16:10:08 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ void	print_matrix(char **matrix);
 int		check_map(t_data *map);
 void	free_all(t_data *data);
 int		check_info2(char **info);
+void	lister(t_data *data);
+void	print_list(t_infos *node);
 
 #endif

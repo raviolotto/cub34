@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:23:47 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/08 17:18:43 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:46:55 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,18 @@ int src_in_matrix(char **matrix, char *str)
 
 int	check_info2(char **info)
 {
-	if (!src_in_matrix(info, "EA"))
-		return (1);
-	else if (!src_in_matrix(info, "NO"))
-		return (1);
-	else if (!src_in_matrix(info, "SO"))
-		return (1);
-	else if (!src_in_matrix(info, "WE"))
-		return (1);
-	else if (!src_in_matrix(info, "C"))
-		return (1);
-	else if (!src_in_matrix(info, "F"))
-		return (1);
+	if (src_in_matrix(info, "EA"))
+		return (2);
+	else if (src_in_matrix(info, "NO"))
+		return (3);
+	else if (src_in_matrix(info, "SO"))
+		return (4);
+	else if (src_in_matrix(info, "WE"))
+		return (5);
+	else if (src_in_matrix(info, "C"))
+		return (6);
+	else if (src_in_matrix(info, "F"))
+		return (7);
 	else
-		return (0);
+		return (1);
 }

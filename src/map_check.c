@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:22:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/08 17:23:11 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/13 17:55:49 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,7 @@ int	parser(int ac, char **av, t_data *data)
 		return (1);
 	if (read_data(av[1], data) == 1)
 		return (1);
+	lister(data);
+	print_list(data->info_list);
 	return (0);
 }
