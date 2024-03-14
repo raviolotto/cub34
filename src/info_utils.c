@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   info_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:21:43 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/14 17:17:53 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:28:48 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,30 @@ void	map_size(t_data *data)
 	data->map_l = mem;
 	printf("%d\n", data->map_h);
 	printf("%d\n", data->map_l);
+}
+
+
+void	player_pos(t_data *data)
+{
+	int	y;
+	int	x;
+
+	y = -1;
+	while(data->map[++y])
+	{
+		int x = 0;
+		while(data->map[y][x])
+		{
+			if(data->map[y][x] == 'N' || data->map[y][x] == 'S'
+				|| data->map[y][x] == 'E' || data->map[y][x] == 'W')
+				{
+					data->player->pos_x = x;
+					data->player->pos_y = y;
+					printf("pos x =%d\n", data->player->pos_x);
+					printf("pos y =%d\n", data->player->pos_y);
+					return ;
+				}
+			x++;
+		}
+	}
 }

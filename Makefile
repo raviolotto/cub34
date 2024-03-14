@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+         #
+#    By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2024/03/14 15:51:28 by jcardina         ###   ########.fr        #
+#    Updated: 2024/03/14 18:11:07 by jcardina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,8 @@ all: $(NAME)
 $(NAME) : $(OBJ)
 	make all bonus -C lib/libft
 	make -C lib/ft_printf
-	$(CC) $(OBJ) $(FLAGS) $(LIBFT) $(PRINTF) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-#	$(CC) $(FLAGS) $(OBJ) $(LIBFT) $(PRINTF) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+#	$(CC) $(OBJ) $(FLAGS) $(LIBFT) $(PRINTF) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) $(LIBFT) $(PRINTF) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 	@echo "\033[32mcubitron compiled\033[0m"
 clean:
 	make clean -C lib/libft

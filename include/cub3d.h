@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/14 17:13:12 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:29:18 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	print_matrix(char **matrix);
 void	free_all(t_data *data);
 void	print_list(t_infos *node);
 void	map_size(t_data *data);
+void	player_pos(t_data *data);
 
 #endif
