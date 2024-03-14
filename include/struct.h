@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:25:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/13 17:49:08 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:30:06 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_infos
 {
 	int	what;
 	char **str;
+	char **color;
 	struct s_infos *next;
 }t_infos;
 

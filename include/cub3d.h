@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/13 16:10:08 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:45:17 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@
 # include <math.h>
 
 int		parser(int ac, char **av, t_data *data);
-char	*super_strjoin(char const *s1, char const *s2);
+int		lister(t_data *data);
 int		check_info(char *str);
-void	print_matrix(char **matrix);
-int		check_map(t_data *map);
-void	free_all(t_data *data);
 int		check_info2(char **info);
-void	lister(t_data *data);
+int		check_map(t_data *map);
+int	color_control(t_infos *infos);
+char	*super_strjoin(char const *s1, char const *s2);
+void	print_matrix(char **matrix);
+void	free_all(t_data *data);
 void	print_list(t_infos *node);
 
 #endif

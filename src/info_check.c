@@ -6,11 +6,38 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:23:47 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/12 17:46:55 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:58:54 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
+int	color_control(t_infos *infos)
+{
+	t_infos	*tmp;
+	char	**str;
+
+	tmp = infos;
+	while(tmp)
+	{
+
+		if(tmp->what == 6 || tmp->what == 7)
+		{
+			str = tmp->color;
+			while(*str)
+			{
+				if(ft_atoi(*str) > 255 || ft_atoi(*str) < 0)
+				{
+					ft_printf("error\nthis value:%s is not ok\n", *str);
+					return(0);
+				}
+				str++;
+			}
+		}
+		tmp = tmp->next;
+	}
+	return (1);
+}
 
 int	check_info(char *str)
 {

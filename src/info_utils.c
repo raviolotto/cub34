@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:21:43 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/13 17:55:28 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:57:01 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	print_list(t_infos *node)
 	{
 		ft_printf("%d\n", tmp->what);
 		print_matrix(tmp->str);
+		if(tmp->what == 6 || tmp->what == 7)
+			print_matrix(tmp->color);
 		tmp = tmp->next;
 	}
 }
@@ -33,6 +35,8 @@ t_infos *newnode(char *str)
 	node->str = ft_split(str, ' ');
 	node->next = NULL;
 	node->what = check_info2(node->str);
+		if(node->what == 6 || node->what == 7)
+			node->color = ft_split(node->str[1], ',');
 	return(node);
 }
 
@@ -46,7 +50,7 @@ void	node_adderal(t_data *data, t_infos *node)
 	tmp->next = node;
 }
 
-void	lister(t_data *data)
+int	lister(t_data *data)
 {
 	char	**matrix;
 	t_infos	*tmp;
@@ -66,5 +70,7 @@ void	lister(t_data *data)
 		}
 		matrix ++;
 	}
-				write(1, ";)\n", 3);
+	if (!color_control(data->info_list))
+		return (1);
+	return (0);
 }
