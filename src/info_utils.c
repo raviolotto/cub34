@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   info_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:21:43 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/14 12:57:01 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:17:53 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,26 @@ int	lister(t_data *data)
 	if (!color_control(data->info_list))
 		return (1);
 	return (0);
+}
+
+void	map_size(t_data *data)
+{
+	int	y;
+	int x;
+	int	mem;
+
+	mem = 0;
+	y = -1;
+	while(data->map[++y])
+	{
+		int x = 0;
+		while(data->map[y][x])
+			x++;
+		if(mem < x)
+			mem = x;
+	}
+	data->map_h = y;
+	data->map_l = mem;
+	printf("%d\n", data->map_h);
+	printf("%d\n", data->map_l);
 }

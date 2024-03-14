@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:54:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/08 17:34:32 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:08:20 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	free_matrix(char **matrix)
 	size_t	i;
 
 	i = 0;
-	if(*matrix == NULL);
+	if(*matrix == NULL)
 		return;
 	while (matrix[i] != NULL)
 	{
@@ -58,9 +58,25 @@ void	free_matrix(char **matrix)
 	free (matrix);
 }
 
+void	free_list(t_infos *list)
+{
+	t_infos	*tmp;
+
+	while(list)
+	{
+		tmp = list;
+		list = list->next;
+		free_matrix(tmp->str);
+		if(tmp->what == 6 || tmp->what == 7)
+			free_matrix(tmp->color);
+		free(tmp);
+	}
+	ft_putstr_fd("freeeeeato amo!!!\n", 1);
+}
 
 void	free_all(t_data *data)
 {
 	free_matrix(data->info);
 	free_matrix(data->map);
+	free_list(data->info_list);
 }

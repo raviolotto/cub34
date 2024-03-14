@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:22:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/14 12:43:06 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:13:32 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ int	parser(int ac, char **av, t_data *data)
 		return (1);
 	if (lister(data) == 1)
 		return (1);
+	map_size(data);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/14 12:45:17 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:13:12 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ int		lister(t_data *data);
 int		check_info(char *str);
 int		check_info2(char **info);
 int		check_map(t_data *map);
-int	color_control(t_infos *infos);
+int		color_control(t_infos *infos);
 char	*super_strjoin(char const *s1, char const *s2);
 void	print_matrix(char **matrix);
 void	free_all(t_data *data);
 void	print_list(t_infos *node);
+void	map_size(t_data *data);
 
 #endif
