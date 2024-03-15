@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:21:57 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/15 18:07:55 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/15 19:22:31 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int check_up_bottom(t_data *map, size_t i, size_t j)
 {
 	while (map->map[i][j])
 	{
-		if (map->map[i][j] != '1' && map->map[i][j] != ' ' && map->map[i][j] != '\0')
+		if (map->map[i][j] != '1' && map->map[i][j] != ' ' && map->map[i][j] != 10)
 			return (1);
 		j++;
 	}
@@ -67,16 +67,15 @@ int check_map(t_data *map)
 		j  = 0;
 		if (i == 0 || i == height)
 		{
-			write(1, "a\n", 2);
-			//if (check_up_bottom(map, i, j))
-			//return (write(1, "sopra sotto\n", 12), 1);
+			if (check_up_bottom(map, i, j))
+				return (1);
 		}
 		else
 		{
 			while (j < ft_strlen(map->map[i]))
 			{
 			if (!check_around(map, i, j))
-				return (write(1, "attorno\n", 9), 1);
+				return (1);
 			j++;
 			}
 		}
