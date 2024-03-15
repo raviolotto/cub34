@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:54:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/14 16:08:20 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:01:40 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ char	*super_strjoin(char const *s1, char const *s2)
 void	print_matrix(char **matrix)
 {
 	while(*matrix)
-	matrix += (printf("%s\n", *matrix) * 0 + 1);
+	{
+		ft_putstr_fd(*matrix, 1);
+		matrix++;
+	}
 }
 
 void	free_matrix(char **matrix)
@@ -79,4 +82,35 @@ void	free_all(t_data *data)
 	free_matrix(data->info);
 	free_matrix(data->map);
 	free_list(data->info_list);
+}
+
+int	matrixlen(char **matrix)
+{
+	int	i;
+
+	i = 0;
+	while (matrix[i] != NULL)
+		i++;
+	return (i);
+}
+
+char	**matrix_newline(char **matrix, char *str)
+{
+	int		len;
+	char	**newmatrix;
+
+	len = matrixlen(matrix);
+	newmatrix = malloc((len + 2) * sizeof(char *));
+	if (!newmatrix)
+		ft_putstr_fd("amoooo memory error\n", 2);
+	len = 0;
+	while (matrix[len] != NULL)
+	{
+		newmatrix[len] = ft_strdup(matrix[len]);
+		len ++;
+	}
+	newmatrix[len] = ft_strdup(str);
+	newmatrix[len + 1] = NULL;
+	free_matrix(matrix);
+	return (newmatrix);
 }

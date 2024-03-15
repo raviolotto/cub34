@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:22:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/14 18:29:46 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:02:52 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,26 @@ int	catch_info(t_data *data, char **line)
 	return (info_counter);
 }
 
+void	matrix_adderal(t_data *data, char *str)
+{
+	if(data->map == NULL)
+	{
+		data->map = ft_calloc(sizeof(char *), 2);
+		data->map[0] = ft_strdup(str);
+	}
+	else
+		data->map = matrix_newline(data->map, str);
+}
+
 void	catch_map(t_data *data, char **line)
 {
-	char	*infoz;
-
-	infoz = ft_strdup("");
 	while (*line)
 	{
 		if(ft_strchr(*line, '1') != NULL)
-			infoz = super_strjoin(infoz, *line);
+			matrix_adderal(data, *line);
 		free(*line);
 		*line = get_next_line(data->fd);
 	}
-	data->map = ft_split(infoz, '\n');
-	free(infoz);
 }
 
 int	read_data(char *name, t_data *data)
@@ -63,6 +69,7 @@ int	read_data(char *name, t_data *data)
 	if (catch_info(data, &line) != 6)
 		return (write(2, "Error\nnot enouth info\n", 22), 1);
 	catch_map(data, &line);
+	print_matrix(data->map);
 	if (check_map(data) == 1)
 		return (write(2, "error\ninvalid map\n", 18), 1);
 	if(check_info2(data->info) == 1)
@@ -92,5 +99,6 @@ int	parser(int ac, char **av, t_data *data)
 		return (1);
 	map_size(data);
 	player_pos(data);
+
 	return (0);
 }

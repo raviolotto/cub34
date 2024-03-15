@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:18:50 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/14 12:25:14 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/15 17:22:08 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 void	init(t_data *data)
 {
 	data->info_list = NULL;
+	data->map = NULL;
 	if(data->info_list == NULL)
 		ft_putstr_fd("amooore\n", 2);
-	
+
 }
 
 int main(int ac, char **av)
