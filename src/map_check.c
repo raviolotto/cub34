@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:22:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/18 16:53:39 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/27 17:49:12 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,5 @@ int	parser(int ac, char **av, t_data *data)
 		return (1);
 	map_size(data);
 	player_pos(data);
-
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2024/03/18 15:57:34 by jcardina         ###   ########.fr        #
+#    Updated: 2024/03/27 19:43:10 by jcardina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ src = \
 	./src/info_utils.c\
 	./src/utils.c\
 	./src/info_check.c\
+	./src/player_utils.c\
 	./lib/gnl/get_next_line.c\
 
 OBJ = $(src:%.c=%.o)

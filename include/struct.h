@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:25:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/27 17:39:37 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/27 19:39:35 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,17 @@ typedef struct s_infos
 
 typedef struct s_player
 {
+	char	c;
 	double	pos_x;
 	double	pos_y;
-	int		dir;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	//double	mov_dir_x;
+	//double	mov_dir_y;
+	//double	cam_dir;
+	//double	rot_angle;
 }t_player;
 
 typedef struct s_img

@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/25 12:37:47 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/27 19:10:01 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 # define SCREEN_W 1900
 # define SCREEN_H 1000
+//mi servono ?
 # define TILE_SIZE 32
-# define FOV 60
 # define ROTATION_SPEED 0.045
 # define PLAYER_SPEED 4
 
@@ -44,6 +44,7 @@ void	print_matrix(char **matrix);
 void	free_all(t_data *data);
 void	print_list(t_infos *node);
 void	map_size(t_data *data);
+void	player_pos(t_data *data);
 void	player_pos(t_data *data);
 
 
