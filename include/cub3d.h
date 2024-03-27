@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/15 17:18:19 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/25 12:37:47 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,20 @@
 # include <fcntl.h>
 # include <math.h>
 
+# define SCREEN_W 1900
+# define SCREEN_H 1000
+# define TILE_SIZE 32
+# define FOV 60
+# define ROTATION_SPEED 0.045
+# define PLAYER_SPEED 4
+
 int		parser(int ac, char **av, t_data *data);
 int		lister(t_data *data);
 int		check_info(char *str);
 int		check_info2(char **info);
 int		check_map(t_data *map);
 int		color_control(t_infos *infos);
+int		start(t_data *data);
 char	*super_strjoin(char const *s1, char const *s2);
 char	**matrix_newline(char **matrix, char *str);
 void	print_matrix(char **matrix);
@@ -40,3 +48,6 @@ void	player_pos(t_data *data);
 
 
 #endif
+
+//appunti									  __A__
+//aggiungere controllo per piú di un player <(" _ ")>

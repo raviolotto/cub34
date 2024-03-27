@@ -1,12 +1,12 @@
-NO ./path_to_the_north_texture
+NO ../assets/north_texture.xpm
 
 
-SO ./path_to_the_south_texture
-EA ./path_to_the_east_texture
+SO ../assets/south_texture.xpm
+EA ../assets/east_texture.xpm
 
 
 
-WE ./path_to_the_west_texture
+WE ../assets/west_texture.xpm
 
 F 220,100,0
 

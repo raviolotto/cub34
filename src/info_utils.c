@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:21:43 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/15 16:54:38 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/27 17:44:04 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	print_list(t_infos *node)
 		if(tmp->what == 6 || tmp->what == 7)
 			print_matrix(tmp->color);
 		tmp = tmp->next;
+		ft_printf("---------------\n");
 	}
 }
 
@@ -110,7 +111,7 @@ void	player_pos(t_data *data)
 			if(data->map[y][x] == 'N' || data->map[y][x] == 'S'
 				|| data->map[y][x] == 'E' || data->map[y][x] == 'W')
 				{
-					data->player.pos_x = x + 1;
+					data->player.pos_x = (float)(x + 1);
 					data->player.pos_y = y + 1;
 					return ;
 				}

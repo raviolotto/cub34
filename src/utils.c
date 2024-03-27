@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:54:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/15 18:01:40 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/25 12:17:49 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	print_matrix(char **matrix)
 	while(*matrix)
 	{
 		ft_putstr_fd(*matrix, 1);
+		write(1, "\n", 1);
 		matrix++;
 	}
 }

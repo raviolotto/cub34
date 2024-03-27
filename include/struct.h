@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:25:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/15 16:50:10 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/27 17:39:37 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct s_infos
 {
-	int	what;
+	int	what; //  2= EA  3=NO 4=SO 5=WE 6=C 7=F
 	char **str;
 	char **color;
 	struct s_infos *next;
@@ -25,17 +25,29 @@ typedef struct s_infos
 
 typedef struct s_player
 {
-	int	pos_x;
-	int	pos_y;
-	int	dir;
+	double	pos_x;
+	double	pos_y;
+	int		dir;
 }t_player;
+
+typedef struct s_img
+{
+	void	*img;
+	char	*addr;
+	int		bits;
+	int		line;
+	int		endian;
+	int		height;
+	int		width;
+}	t_img;
 
 typedef struct s_mini
 {
 	void	*mlx;
 	void	*mlx_win;
-	void	*mlx_img;
+	t_img	img;
 }t_mini;
+
 
 typedef struct s_data
 {
@@ -45,7 +57,7 @@ typedef struct s_data
 	char		**map;
 	char		**info;
 	t_infos		*info_list;
-	t_mini		*mini;
+	t_mini		mini;
 	t_player	player;
 }t_data;
 

@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:22:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/15 18:02:52 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:53:39 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	parser(int ac, char **av, t_data *data)
 {
 
 	if (ac != 2 || file_name(av[1]) == 1)
-		return (1);
+		return (write(1, "erro\n dumb input\n", 17), 1);
 	if (read_data(av[1], data) == 1)
 		return (1);
 	if (lister(data) == 1)

@@ -6,7 +6,7 @@
 #    By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2024/03/15 16:42:46 by jcardina         ###   ########.fr        #
+#    Updated: 2024/03/18 15:57:34 by jcardina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ PRINTF = lib/ft_printf/libftprintf.a
 
 src = \
 	cub3d.c\
+	./src/start.c\
 	./src/map_check.c\
 	./src/map_check1.c\
 	./src/info_utils.c\
