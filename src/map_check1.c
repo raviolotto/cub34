@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:21:57 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/15 19:22:31 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/04/16 17:19:16 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static int  map_height(t_data *map)
 	return (height);
 }
 
+//sta roba é un cesso ma funziona, controlla che la mappa abbia i bordi chiusi
 static int check_around(t_data *map, size_t i , size_t j)
 {
 		while (map->map[i][j] == ' ' || map->map[i][j] == '\t'

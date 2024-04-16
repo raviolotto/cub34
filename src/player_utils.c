@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:05:21 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/27 19:42:34 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/04/16 17:04:11 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	player_dir(t_data *data)
 		data->player.dir_x = -1;
 		data->player.plane_y = -0.66;
 	}
-	else (c == 'S')
+	else if (c == 'S')
 	{
 		write(1, "a\n", 2);
 		data->player.dir_x = 1;

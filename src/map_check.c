@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:22:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/27 17:49:12 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/04/16 17:24:26 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	catch_info(t_data *data, char **line)
 	return (info_counter);
 }
 
+// é una funzione che aggiunge una line in una matrice
+// usala se ti serve
 void	matrix_adderal(t_data *data, char *str)
 {
 	if(data->map == NULL)
@@ -66,10 +68,12 @@ int	read_data(char *name, t_data *data)
 	line = get_next_line(data->fd);
 	if (line == NULL)
 		return (write(2, "Error\nempty file\n", 18), 1);
+	//controlla che ci siano i dati dei colori e delle texture
 	if (catch_info(data, &line) != 6)
 		return (write(2, "Error\nnot enouth info\n", 22), 1);
+	//cattura la mappa
 	catch_map(data, &line);
-	print_matrix(data->map);
+	//controllo della mappa
 	if (check_map(data) == 1)
 		return (write(2, "error\ninvalid map\n", 18), 1);
 	if(check_info2(data->info) == 1)
@@ -95,6 +99,7 @@ int	parser(int ac, char **av, t_data *data)
 		return (write(1, "erro\n dumb input\n", 17), 1);
 	if (read_data(av[1], data) == 1)
 		return (1);
+	//crea una lista dove ogni nodo contiene che texture/colore é e le relative path/valori
 	if (lister(data) == 1)
 		return (1);
 	map_size(data);

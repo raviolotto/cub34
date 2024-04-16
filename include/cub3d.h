@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/27 19:10:01 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/04/16 17:02:07 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "../lib/libft/libft.h"
 # include "../lib/ft_printf/ft_printf.h"
 # include "../lib/gnl/get_next_line.h"
-# include "../mlx/mlx.h"
+# include "../mlx_linux/mlx.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>

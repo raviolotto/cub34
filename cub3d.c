@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:18:50 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/27 17:44:15 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/04/16 17:13:25 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ int main(int ac, char **av)
 {
 	t_data data;
 
+	//inizializza le robe nel caso ci pui aggiungere quello che ti serve
 	init(&data);
+	//iniziano tutti i controlli
 	if(parser(ac, av, &data) == 1)
 	{
 		printf(":(\n");
