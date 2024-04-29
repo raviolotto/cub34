@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:25:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/27 19:39:35 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/04/29 14:40:32 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_player
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
+	double	mov_ang;
 	//double	mov_dir_x;
 	//double	mov_dir_y;
 	//double	cam_dir;
@@ -55,7 +56,6 @@ typedef struct s_mini
 	void	*mlx_win;
 	t_img	img;
 }t_mini;
-
 
 typedef struct s_data
 {

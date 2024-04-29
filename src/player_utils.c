@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   player_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:05:21 by jcardina          #+#    #+#             */
-/*   Updated: 2024/04/16 17:04:11 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/04/29 14:29:20 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/cub3d.h"
-
+/*
+definisce la direzione e salva info sulla direzione del player.
+*/
 void	player_dir(t_data *data)
 {
 	char	c;

@@ -1,7 +1,7 @@
 /* XPM */
 static char *e6f4eac35e7e48a285973125340bf0e1[] = {
 /* columns rows colors chars-per-pixel */
-"64 62 256 2 ",
+"64 64 256 2 ",
 "   c #000000",
 ".  c #0000A8",
 "X  c #00A800",
@@ -320,5 +320,7 @@ static char *e6f4eac35e7e48a285973125340bf0e1[] = {
 "$ Z.V.A.S.S.S.S.S.S.A.A.S.G.J.xXe 0 0 D.F.J.J.J.J.J.J.J.J.J.J.J.J.J.J.J.J.J.J.J.K.xXe L.$ q L.e e e e e e e e e e e e e e e e e ",
 "$ S.A.D.G.G.G.G.G.G.G.G.G.J.K.jXe $ 0 e e e e e e e e e e e e e e e e e e e e e e e e q $ q q e e e e e e e e e e e e e e e e e ",
 "$ $ G.J.J.K.K.K.xXxXxXxXxXxXjXjXe $ 0 e e e e e e e e e e e e e e e e e e e e e e e e q $ $ q q q q q q q q q q q q q q q q q $ ",
+"$ e e e e e e e e e e e e e e e e $ $ 0 q L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.q $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ "
+"$ e e e e e e e e e e e e e e e e $ $ 0 q L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.q $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ "
 "$ e e e e e e e e e e e e e e e e $ $ 0 q L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.q $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ "
 };

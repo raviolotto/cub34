@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+         #
+#    By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2024/03/27 19:43:10 by jcardina         ###   ########.fr        #
+#    Updated: 2024/04/26 13:47:47 by mcamilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

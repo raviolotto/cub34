@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   info_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:21:43 by jcardina          #+#    #+#             */
-/*   Updated: 2024/03/27 19:06:30 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:52:36 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,4 @@ void	map_size(t_data *data)
 	data->map_h = y;
 	data->map_l = mem;
 }
-
-
 
