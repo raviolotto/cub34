@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:25:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/04/30 23:38:14 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/01 17:10:42 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_data
 	char		**info;
 	double		ray_lenght;
 	double		ray_x;
-	double		ray_Y;
+	double		ray_y;
 	t_infos		*info_list;
 	t_mini		mini;
 	t_player	player;

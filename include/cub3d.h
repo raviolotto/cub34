@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/04/29 16:14:54 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/01 13:42:53 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@
 # include <fcntl.h>
 # include <math.h>
 
-# define SCREEN_W 1600
-# define SCREEN_H 1000
+# define SCREEN_W 720
+# define SCREEN_H 450
 //mi servono ?
 # define TILE_SIZE 32
 # define ROTATION_SPEED 0.045
 # define PLAYER_SPEED 4
-#define CONST_RAD 0.000654498469498
+#define CONST_RAD 0.001454441043329
 
 int		parser(int ac, char **av, t_data *data);
 int		lister(t_data *data);
