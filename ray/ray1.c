@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:45:02 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/01 03:19:34 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/01 10:47:17 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ double ft_ray_lenght_mag_7200(t_data *data,double  q, double m)
 }
 void ft_set_ray_min_2400(t_data *data, double q, double m)
 {
+	//qui dovrei calcolre l distanza dal piano di cristo
 	data->ray_lenght = ft_ray_lenght_min_2400(data, q, m);
 	data->ray_x = cos(data->player.pos_x + data->ray_lenght);
 	data->ray_Y = fma(m, data->ray_x, q);
@@ -157,8 +158,7 @@ void ft_ray_in_plane(t_data *data)
 	m = tan(CONST_RAD * data->player.mov_ang);
 	q = fma(-data->player.pos_x, m,data->player.pos_y);
 	if (data->player.mov_ang <= 2400)
-		data->ray_lenght = ft_ray_lenght_min_2400(data, q, m);
-		ft_set_ray_min_2400(data, q, m);
+		ft_set_ray_min_2400(data, q, m);// funzione per calcolare cazzi
 	else if (data->player.mov_ang <= 4800)
 		data->ray_lenght = ft_ray_lenght_min_4800(data, q, m);
 	else if (data->player.mov_ang <= 7200)

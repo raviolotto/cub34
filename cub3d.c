@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:18:50 by jcardina          #+#    #+#             */
-/*   Updated: 2024/04/16 17:13:25 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/05/01 11:48:03 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ void	init(t_data *data)
 	if(data->info_list == NULL)
 		ft_putstr_fd("amooore\n", 2);
 
+}
+
+int	otherexit(void)
+{
+	exit(0);
 }
 
 int main(int ac, char **av)
@@ -44,6 +49,8 @@ int main(int ac, char **av)
 	if(start(&data) == 1)
 	{
 		printf(":(\n");
+		mlx_hook(data.mini.mlx_win, 17, 0, otherexit, NULL);
+		mlx_key_hook(game.mlx_win, controls_working, &game);
 		free_all(&data);
 		return(1);
 	}
