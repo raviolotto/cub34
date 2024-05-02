@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:45:02 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/01 19:07:51 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/02 10:11:57 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ double control_ab(t_data *data, int newx1a, double newya)
 }
 
 /*
-ritorna la lunghezza del ray sul primo quadrante, setta ray x e y.
+ritorna la lunghezza del ray sul primo quadrante, setta coord ray x e y.
+ovvero del punto di collisione tra ray e muro
 */
 double	ft_ray_lenght_min_1079(t_data *data,double  q, double m)
 {
@@ -112,7 +113,8 @@ double	ft_ray_lenght_min_1079(t_data *data,double  q, double m)
 }
 
 /*
-ritorna la lunghezza del ray sul secondo quadrante, setta ray x e y.
+ritorna la lunghezza del ray sul secondo quadrante, setta coord ray x e y.
+ovvero del punto di collisione tra ray e muro
 */
 double ft_ray_lenght_min_2160(t_data *data,double  q, double m)
 {
@@ -140,7 +142,8 @@ double ft_ray_lenght_min_2160(t_data *data,double  q, double m)
 }
 
 /*
-ritorna la lunghezza del ray sul terzo quadrante, setta ray x e y.
+ritorna la lunghezza del ray sul terzo quadrante, setta coord ray x e y.
+ovvero del punto di collisione tra ray e muro
 */
 double ft_ray_lenght_min_3239(t_data *data,double  q, double m)
 {
@@ -168,7 +171,8 @@ double ft_ray_lenght_min_3239(t_data *data,double  q, double m)
 }
 
 /*
-ritorna la lunghezza del ray sul quarto quadrante, setta ray x e y.
+ritorna la lunghezza del ray sul quarto quadrante, setta coord ray x e y.
+ovvero del punto di collisione tra ray e muro
 */
 double ft_ray_lenght_mag_3239(t_data *data,double  q, double m)
 {
@@ -194,108 +198,101 @@ double ft_ray_lenght_mag_3239(t_data *data,double  q, double m)
 		newy1b--;
 	}
 }
-void ft_set_ray_min_1079(t_data *data, double q, double m, double rad_p)
+
+/*
+colacola la distanza tra il punto del muro e il PIANO dl giocatore, 
+quindievita il fisheye effect.
+Hypo = la distanza effettiva tra punto e giocatore,
+quindi il ray trovato prima.
+*/
+double ft_ray_on_plane(t_data *data, double hypo_lenght)
 {
-	//qui dovrei calcolre l distanza dal piano di cristo
-	data->ray_lenght = sin(CONST_RAD * data->player.mov_ang) * ft_ray_lenght_min_1079(data, q, m);
-	data->ray_y = fma(m, data->ray_x, q);
+	double rad_hyp;
+	
+	rad_hyp = data->rad_ray - data->rad_p;
+	if (rad_hyp > PI / 2);
+		rad_hyp = data->rad_p + PI - data->rad_ray;
+	return (sin(rad_hyp) * hypo_lenght); 
 }
 
+/*
+setta il ray nel caso in cui la retta sia direzionata
+sul primo quadrante
+*/
+void ft_set_ray_min_1079(t_data *data, double q, double m)
+{
+	
+	data->ray_lenght = ft_ray_on_plane(data, ft_ray_lenght_min_1079(data, q, m));
+	
+}
+
+/*
+setta il ray nel caso in cui la retta sia direzionata
+sul secondo quadrante
+*/
 void ft_set_ray_min_2160(t_data *data, double q, double m)
 {
-	data->ray_lenght = ft_ray_lenght_min_2160(data, q, m);
-	data->ray_x = cos(data->player.pos_x - data->ray_lenght);
-	data->ray_Y = fma(m, data->ray_x, q);
+	data->ray_lenght = ft_ray_on_plane(data, ft_ray_lenght_min_2160(data, q, m));
 }
 
+/*
+setta il ray nel caso in cui la retta sia direzionata
+sul terzo quadrante
+*/
 void ft_set_ray_min_3239(t_data *data, double q, double m)
 {
-	data->ray_lenght = ft_ray_lenght_min_3239(data, q, m);
-	data->ray_x = cos(data->player.pos_x - data->ray_lenght);
-	data->ray_Y = fma(m, data->ray_x, q);
+	data->ray_lenght = ft_ray_on_plane(data, ft_ray_lenght_min_3239(data, q, m));
 }
 
+/*
+setta il ray nel caso in cui la retta sia direzionata
+sul quarto quadrante
+*/
 void ft_set_ray_mag_3239(t_data *data, double q, double m)
 {
-	data->ray_lenght = ft_ray_lenght_mag_3239(data, q, m);
-	data->ray_x = cos(data->player.pos_x + data->ray_lenght);
-	data->ray_Y = fma(m, data->ray_x, q);
+	data->ray_lenght = ft_ray_on_plane(data, ft_ray_lenght_mag_3239(data, q, m));
 }
 /*
 trova m e q di un ray, smista il ray in base alla sua direzione ed
-esegue una funzione a parte per ognuna di esse cosi da capire quanto trova il muro
-completata solo la funzione del primo quadrante (1079);
+esegue una funzione a parte, ne esiste una per ogni direzione.
+i numeri sono in ordine di quadrante, ho divido il piano in 4320 rette
+(720 è la risoluzione, 720 * (360 / 60) = 4320)
+cosi è come se ogni direzione avesse un radiante "pre-assegnato"
 */
-void ft_ray_in_plane(t_data *data, double rad_p)
+void ft_ray_in_plane(t_data *data)
 {
-	//2400 = ancora primo quadrante
-	// 4800 ancora secondo quad
-	// 7200 ancora terzo quad
 	double m;
 	double q;
-	m = tan(CONST_RAD * data->player.mov_ang);
+
+	m = tan(data->rad_ray);
 	q = fma(-data->player.pos_x, m,data->player.pos_y);
 	if (data->player.mov_ang <= 1079)
-		ft_set_ray_min_1079(data, q, m, rad_p);
+		ft_set_ray_min_1079(data, q, m);
 	else if (data->player.mov_ang <= 2160)
-		data->ray_lenght = ft_ray_lenght_min_2160(data, q, m);
+		ft_set_ray_min_2160(data, q, m);
 	else if (data->player.mov_ang <= 3239)
-		data->ray_lenght = ft_ray_lenght_min_3239(data, q, m);
+		ft_set_ray_min_3239(data, q, m);
 	else
-		data->ray_lenght = ft_ray_lenght_mag_3239(data, q, m);
+		ft_set_ray_mag_3239(data, q, m);
 	data->ray_x = cos(data->player.pos_x + data->ray_lenght);
 	data->ray_y = fma(m, data->ray_x, q);
 }
 
-
-
-void ft_ray_in_plane(t_data *data)
-{
-	//2400 = ancora primo quadrante
-	// 4800 ancora secondo quad
-	// 7200 ancora terzo quad
-	double m;
-	double q;
-	int newx1a;
-	double newya;
-	int newy1b;
-	double newxb;
-	m = tan(CONST_RAD * data->player.mov_ang);
-	q = fma(-data->player.pos_x, m,data->player.pos_y);
-	if (data->player.mov_ang <= 2400)
-	{
-		while (1)
-		{
-
-		newx1a = ceil(data->player.pos_x);
-		if (data->map[floor(fma(m, newx1a, q))][newx1a] == '1')
-		{
-			break
-		}
-			newx1a++;
-		newya = fma(m, newx1a, q);
-		newy1b = ceil(data->player.pos_y);
-		while (data->map[floor(1/m * (newy1b - q))][newy1b] != '1')
-			newy1b++;
-		newxb = 1/m * (newy1b - q);
-		}
-
-	}
-}
+/*
+dovrebbe essere la funzione stampa tutto
+*/
 void ft_raycast1(t_data *data)
 {
 	int i;
-	double rad_p;
 
 	i = 720;
-	rad_p = (data->player.mov_ang * CONST_RAD) - 1.0471975511;
+	data->rad_p = (data->player.mov_ang * CONST_RAD) - 1.0471975511;
 	while(i--)
 	{
+		data->rad_ray = data->player.mov_ang * CONST_RAD;
 		if (data->player.mov_ang == 4320)
 			data->player.mov_ang = 0;
-		ft_ray_in_plane(data, rad_p);
+		ft_ray_in_plane(data);
 		data->player.mov_ang++;
-
 	}
-
 }

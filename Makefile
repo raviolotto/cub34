@@ -6,7 +6,7 @@
 #    By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2024/05/01 11:35:33 by mcamilli         ###   ########.fr        #
+#    Updated: 2024/05/02 10:40:03 by mcamilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ src = \
 	./src/info_check.c\
 	./src/player_utils.c\
 	./lib/gnl/get_next_line.c\
+	./src/hooknmove.c\
 
 OBJ = $(src:%.c=%.o)
 
@@ -38,6 +39,7 @@ all: $(NAME)
 $(NAME) : $(OBJ)
 	make all bonus -C lib/libft
 	make -C lib/ft_printf
+	make -C mlx_linux/
 #	$(CC) $(OBJ) $(CFLAGS) $(LIBFT) $(PRINTF) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 	@echo "\033[32mcubitron compiled\033[0m"

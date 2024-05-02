@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/01 13:42:53 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/02 10:35:24 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@
 # define TILE_SIZE 32
 # define ROTATION_SPEED 0.045
 # define PLAYER_SPEED 4
-#define CONST_RAD 0.001454441043329
+# define CONST_RAD 0.001454441043329
+# define PI 3.141592653589793
 
 int		parser(int ac, char **av, t_data *data);
 int		lister(t_data *data);
@@ -47,6 +48,8 @@ void	print_list(t_infos *node);
 void	map_size(t_data *data);
 void	player_pos(t_data *data);
 void	player_pos(t_data *data);
+int		exit_point(t_data *data);
+int		controls_working(int command, t_data *data);
 
 
 #endif

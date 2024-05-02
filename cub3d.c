@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:18:50 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/01 13:06:30 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/02 10:46:57 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,10 @@ int main(int ac, char **av)
 	if(start(&data) == 1)
 	{
 		printf(":(\n");
+		data.mini.mlx = mlx_init();
 		mlx_hook(data.mini.mlx_win, 17, 0, otherexit, NULL);
-		//mlx_key_hook(game.mlx_win, controls_working, &game);
-		free_all(&data);
+		mlx_key_hook(data.mini.mlx_win, controls_working, &data.mini);
+		mlx_loop(data.mini.mlx);
 		return(1);
 	}
 	return (0);

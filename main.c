@@ -6,13 +6,10 @@
 
 int main(void)
 {
-
-	float a = 1.0;
-	float b = 1.1;
-	float c = 2.0;
-	float d = 2.1;
+	double pi = 3.141592653589793;
+	double hp = hypot(3, 3);
 
 
-	printf("il numero op1  = %d, il numero op 2 %d\n", (0 %2),  0 / 2);
+	printf("il numero op1  = %f" , pi / 2);
 	return (0);
 }
