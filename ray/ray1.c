@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:45:02 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/02 10:11:57 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/02 16:47:18 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,7 +219,7 @@ double ft_ray_on_plane(t_data *data, double hypo_lenght)
 setta il ray nel caso in cui la retta sia direzionata
 sul primo quadrante
 */
-void ft_set_ray_min_1079(t_data *data, double q, double m)
+void ft_set_ray_min_1079(t_data *data, double q, double m, double i)
 {
 	
 	data->ray_lenght = ft_ray_on_plane(data, ft_ray_lenght_min_1079(data, q, m));
@@ -230,7 +230,7 @@ void ft_set_ray_min_1079(t_data *data, double q, double m)
 setta il ray nel caso in cui la retta sia direzionata
 sul secondo quadrante
 */
-void ft_set_ray_min_2160(t_data *data, double q, double m)
+void ft_set_ray_min_2160(t_data *data, double q, double m, double i)
 {
 	data->ray_lenght = ft_ray_on_plane(data, ft_ray_lenght_min_2160(data, q, m));
 }
@@ -239,7 +239,7 @@ void ft_set_ray_min_2160(t_data *data, double q, double m)
 setta il ray nel caso in cui la retta sia direzionata
 sul terzo quadrante
 */
-void ft_set_ray_min_3239(t_data *data, double q, double m)
+void ft_set_ray_min_3239(t_data *data, double q, double m, double i)
 {
 	data->ray_lenght = ft_ray_on_plane(data, ft_ray_lenght_min_3239(data, q, m));
 }
@@ -248,7 +248,7 @@ void ft_set_ray_min_3239(t_data *data, double q, double m)
 setta il ray nel caso in cui la retta sia direzionata
 sul quarto quadrante
 */
-void ft_set_ray_mag_3239(t_data *data, double q, double m)
+void ft_set_ray_mag_3239(t_data *data, double q, double m, double i)
 {
 	data->ray_lenght = ft_ray_on_plane(data, ft_ray_lenght_mag_3239(data, q, m));
 }
@@ -259,7 +259,7 @@ i numeri sono in ordine di quadrante, ho divido il piano in 4320 rette
 (720 è la risoluzione, 720 * (360 / 60) = 4320)
 cosi è come se ogni direzione avesse un radiante "pre-assegnato"
 */
-void ft_ray_in_plane(t_data *data)
+void ft_ray_in_plane(t_data *data, int i)
 {
 	double m;
 	double q;
@@ -267,13 +267,13 @@ void ft_ray_in_plane(t_data *data)
 	m = tan(data->rad_ray);
 	q = fma(-data->player.pos_x, m,data->player.pos_y);
 	if (data->player.mov_ang <= 1079)
-		ft_set_ray_min_1079(data, q, m);
+		ft_set_ray_min_1079(data, q, m, i);
 	else if (data->player.mov_ang <= 2160)
-		ft_set_ray_min_2160(data, q, m);
+		ft_set_ray_min_2160(data, q, m, i);
 	else if (data->player.mov_ang <= 3239)
-		ft_set_ray_min_3239(data, q, m);
+		ft_set_ray_min_3239(data, q, m, i);
 	else
-		ft_set_ray_mag_3239(data, q, m);
+		ft_set_ray_mag_3239(data, q, m, i);
 	data->ray_x = cos(data->player.pos_x + data->ray_lenght);
 	data->ray_y = fma(m, data->ray_x, q);
 }
@@ -292,7 +292,7 @@ void ft_raycast1(t_data *data)
 		data->rad_ray = data->player.mov_ang * CONST_RAD;
 		if (data->player.mov_ang == 4320)
 			data->player.mov_ang = 0;
-		ft_ray_in_plane(data);
+		ft_ray_in_plane(data, i);
 		data->player.mov_ang++;
 	}
 }

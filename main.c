@@ -6,10 +6,11 @@
 
 int main(void)
 {
-	double pi = 3.141592653589793;
-	double hp = hypot(3, 3);
+	char *str = "pippo";
+	char *str2;
 
-
-	printf("il numero op1  = %f" , pi / 2);
+	str2 = str;
+	while (*str)
+		printf("%c\n" , *str++);
 	return (0);
 }

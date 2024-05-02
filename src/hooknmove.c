@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 13:23:32 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/02 10:40:54 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/02 14:06:17 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ int	exit_point(t_data *data)
 	//int	a;
 
 	// a = -1;
-	if (data->mini.mlx_win)
-		mlx_destroy_window(data->mini.mlx, data->mini.mlx_win);
-	free_all(data);
+	if (data->mini.mlx_win)//questo è solo per non dare errore
+		printf("dfghj");
+	//	mlx_destroy_window(data->mini.mlx, data->mini.mlx_win);
+	//free_all(data);
 	// free(game->mlx);
 	// while (game->map[++a])
 	// 	free(game->map[a]);
