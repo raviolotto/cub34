@@ -36,4 +36,4 @@ nel fare questo ho messo i cosi per uscire, ma non se
  -finire il raycasting, ho fatto due versioni, una alternative e una originale, cambio il nome in 
  ray1.c in base a quale compilo, alternative ha molte righe ma dovrebbe essere piu comprensibile, ho trovato
  l'errore (i controlli prima di vedere la matrice)
- - ray1 originale ha la formua di newx sbagliata, manca dividere q per m;
+ - tutti e due i raycasting fanno sempre gli stessi valori su ray y e ray x

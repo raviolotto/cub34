@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray1.c                                             :+:      :+:    :+:   */
+/*   ray1_orig.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:45:02 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/03 02:37:07 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/03 04:50:04 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ double	ft_ray_lenght_min_1079(t_data *data,double  q, double m)
 		|| (newy1b >= 0 && newy1b < data->map_h))
 	{
 		newya = fma(m, (double)newx1a, q);
-		newxb = ((1.0 / m) * (double)newy1b) - q ;
+		newxb = ((double)newy1b/m) - (q/m);
 		if (control_a(data,newx1a,newya, 1) && control_b(data, newxb, newy1b, 0))
 			return (control_ab(data, newx1a, newya));
 		if (control_a(data,newx1a,newya, 1))
@@ -141,7 +141,7 @@ double ft_ray_lenght_min_2160(t_data *data,double  q, double m)
 		|| (newy1b >= 0 && newy1b <= data->map_h))
 	{
 		newya = fma(m, newx1a, q);
-		newxb = 1/m * (newy1b - q);
+		newxb = ((double)newy1b/m) - (q/m);
 		if (control_a(data,newx1a,newya, 3) && control_b(data, newxb, newy1b, 0))
 			return (control_ab(data, newx1a, newya));
 		if (control_a(data,newx1a,newya, 3))
@@ -173,7 +173,7 @@ double ft_ray_lenght_min_3239(t_data *data,double  q, double m)
 		|| (newy1b >= 0 && newy1b <= data->map_h))
 	{
 		newya = fma(m, newx1a, q);
-		newxb = 1/m * (newy1b - q);
+		newxb = ((double)newy1b/m) - (q/m);
 		if (control_a(data,newx1a,newya, 2) && control_b(data, newxb, newy1b, 2))
 			return (control_ab(data, newx1a, newya));
 		if (control_a(data,newx1a,newya, 2))
@@ -205,7 +205,7 @@ double ft_ray_lenght_mag_3239(t_data *data,double  q, double m)
 		|| (newy1b >= 0 && newy1b <= data->map_h))
 	{
 		newya = fma(m, newx1a, q);
-		newxb = 1/m * (newy1b - q);
+		newxb = ((double)newy1b/m) - (q/m);
 		if (control_a(data,newx1a,newya, 0) && control_b(data, newxb, newy1b, 3))
 			return (control_ab(data, newx1a, newya));
 		if (control_a(data,newx1a,newya, 0))
