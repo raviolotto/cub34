@@ -6,7 +6,7 @@
 #    By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2024/05/02 10:40:03 by mcamilli         ###   ########.fr        #
+#    Updated: 2024/05/02 18:49:02 by mcamilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ src = \
 	./src/player_utils.c\
 	./lib/gnl/get_next_line.c\
 	./src/hooknmove.c\
+	./ray/ray1.c\
+	./ray/ray2.c\
 
 OBJ = $(src:%.c=%.o)
 

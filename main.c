@@ -3,14 +3,14 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <math.h>
+#include "./include/cub3d.h"
 
 int main(void)
 {
-	char *str = "pippo";
-	char *str2;
+	double pi = 3.141592653589793;
+	double hp = hypot(3, 3);
 
-	str2 = str;
-	while (*str)
-		printf("%c\n" , *str++);
+
+	printf("il numero op1  = %f" , ((911.0 * CONST_RAD + (CONST_RAD / 2.0)) * 180) / PI);
 	return (0);
 }

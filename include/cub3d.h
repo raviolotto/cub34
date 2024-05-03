@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/02 14:12:56 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/02 18:54:22 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	player_pos(t_data *data);
 int		exit_point(t_data *data);
 int		controls_working(int command, t_data *data);
 void	ft_raycast1(t_data *data);
-
+void	ft_fakeray(t_data *data, int i);
 
 #endif
 

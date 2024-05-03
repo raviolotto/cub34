@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:05:21 by jcardina          #+#    #+#             */
-/*   Updated: 2024/04/29 14:29:20 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/02 18:20:16 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,22 @@ void	player_dir(t_data *data)
 	if (c == 'W')
 	{
 		write(1, "a\n", 2);
-		data->player.dir_y = 1;
-		data->player.plane_x = -0.66;
+		data->player.mov_ang = 1800;
 	}
 	else if (c == 'E')
 	{
 		write(1, "a\n", 2);
-		data->player.dir_y = -1;
-		data->player.plane_x = 0.66;
+		data->player.mov_ang = 3960;
 	}
 	else if (c == 'N')
 	{
 		write(1, "a\n", 2);
-		data->player.dir_x = -1;
-		data->player.plane_y = -0.66;
+		data->player.mov_ang = 720;
 	}
 	else if (c == 'S')
 	{
 		write(1, "a\n", 2);
-		data->player.dir_x = 1;
-		data->player.plane_y = 0.66;
+		data->player.mov_ang = 2880;
 	}
 }
 
