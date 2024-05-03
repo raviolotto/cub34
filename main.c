@@ -11,6 +11,6 @@ int main(void)
 	double hp = hypot(3, 3);
 
 
-	printf("il numero op1  = %f" , ((911.0 * CONST_RAD + (CONST_RAD / 2.0)) * 180) / PI);
+	printf("il numero op1  = %d" , (int)ceil(PI));
 	return (0);
 }
