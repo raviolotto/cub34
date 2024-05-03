@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:18:50 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/03 00:46:17 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/03 04:21:35 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ int main(int ac, char **av)
 	//fine debug info
 	if(1)
 	{
-		printf(" data.map_h = %d, data map_l = %d", data.map_h, data.map_l);
+		
+		printf(" data.map_h = %d, data map_l = %d\n", data.map_h, data.map_l);
+		print_matrix(data.map);
 		data.mini.mlx = mlx_init();
 		data.mini.mlx_win = mlx_new_window(data.mini.mlx ,SCREEN_W, SCREEN_H, "cubitron");
 		data.mini.img.img = mlx_new_image(data.mini.mlx, SCREEN_W, SCREEN_H);

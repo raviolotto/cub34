@@ -31,4 +31,9 @@ lista di cose;
 
 - nel parser ho dovuto inserire cose per i comandi,  
 nel fare questo ho messo i cosi per uscire, ma non se
- po freaa funziona solo exit
+ po freaa funziona solo exit.
+
+ -finire il raycasting, ho fatto due versioni, una alternative e una originale, cambio il nome in 
+ ray1.c in base a quale compilo, alternative ha molte righe ma dovrebbe essere piu comprensibile, ho trovato
+ l'errore (i controlli prima di vedere la matrice)
+ - ray1 originale ha la formua di newx sbagliata, manca dividere q per m;

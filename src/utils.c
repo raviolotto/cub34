@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:54:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/02 13:57:05 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/03 04:09:58 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ char	*super_strjoin(char const *s1, char const *s2)
 
 void	print_matrix(char **matrix)
 {
+	write(1, "\n", 1);
 	while(*matrix)
 	{
 		ft_putstr_fd(*matrix, 1);
-		write(1, "\n", 1);
+		//write(1, "\n", 1);
 		matrix++;
 	}
 }

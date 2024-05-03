@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:21:43 by jcardina          #+#    #+#             */
-/*   Updated: 2024/04/26 16:52:36 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/03 04:21:07 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	map_size(t_data *data)
 		if(mem < x)
 			mem = x;
 	}
-	data->map_h = y;
-	data->map_l = mem;
+	data->map_h = y - 1;
+	data->map_l = mem - 2;
 }
 
