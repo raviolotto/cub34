@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:45:02 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/03 13:52:25 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/04 09:45:38 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ mag 3239: dir = 3
 */
 int	control_b(t_data *data, double newxb, int newy1b, int dir)
 {
-	if (newxb <= 0 || newxb >= data->map_l || newy1b <= 0 || newy1b >= data->map_h) {
+	if (newxb <= 0 || newxb >= ft_strlen() || newy1b <= 0 || newy1b >= data->map_h) {
         //printf("Tentativo di accesso fuori dai limiti: x=%f, y=%d, ray n = %f\n", newxb, newy1b, data->player.mov_ang);
         return (0);  // Gestisci l'errore come preferisci, qui stoppo il controllo
     }
@@ -110,13 +110,11 @@ double	ft_ray_lenght_min_1079(t_data *data,double  q, double m)
 
 	newx1a = ceil(data->player.pos_x);
 	newy1b = ceil(data->player.pos_y);
-	while ((newx1a < data->map_l &&  newx1a >= 0)
-		|| (newy1b >= 0 && newy1b < data->map_h))
+	while (1)
 	{
 		newya = fma(m, (double)newx1a, q);
 		newxb = ((double)newy1b/m) - (q/m);
 		printf("m = %f, q = %f, newx1a = %d, newy1b = %d\n", m, q, newx1a, newy1b);
-
 		if (control_a(data,newx1a,newya, 0) && control_b(data, newxb, newy1b, 0))
 			return (control_ab(data, newx1a, newya));
 		if (control_a(data,newx1a,newya, 0))
@@ -302,7 +300,7 @@ void ft_ray_in_plane(t_data *data, int i)
 	double q;
 
 	m = tan(data->rad_ray);
-	q = fma(-data->player.pos_x, m,data->player.pos_y);
+	q = data->player.pos_y -(m * data->player.pos_x);
 	if (data->player.mov_ang <= 1079)
 		ft_set_ray_min_1079(data, q, m, i);
 	else if (data->player.mov_ang <= 2159)
@@ -320,9 +318,9 @@ void ft_raycast1(t_data *data)
 {
 	int i;
 
-	i = 720;
+	i = 0;
 	data->rad_p = (data->player.mov_ang * CONST_RAD + (CONST_RAD / 2.0)) - 1.0471975511;
-	while(i-- > 1)
+	while(i++ < 720)
 	{
 		data->rad_ray = data->player.mov_ang * CONST_RAD + (CONST_RAD / 2.0);
 		if (data->player.mov_ang == 4320)

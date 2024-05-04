@@ -1,17 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray1.c                                             :+:      :+:    :+:   */
+/*   ray1altern.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:45:02 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/03 12:20:59 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/03 23:18:49 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
+int ft_floor(double i)
+{
+	double d;
+	
+	d = i;
+	return ((int)d);
+}
 /*
 serve per sostituire i controlli troppo lunghi, e setta ray x e y con le coord. di a;
 dir è un modificatore che può cambiere il risultato dei controlli, il suo valore dipende
@@ -29,9 +36,8 @@ int	control_a(t_data *data, int newx1a, double newya, int dir)
         return (0);  // Gestisci l'errore come preferisci, qui stoppo il controllo
     }
 	printf("contr_a = x = %d, y = %f\n", newx1a, newya);
-	if ((((dir == 1 || dir == 3) && data->map[(int)
-			floor(newya)][newx1a - (dir / 2)] == '1'))
-			|| ((dir == 2 || dir == 0) && data->map[(int)newya][newx1a - (dir / 2)] == '1'))
+	if ((((dir == 1 || dir == 3) && data->map[ft_floor(newya)][newx1a - (dir / 2)] == '1'))
+			|| ((dir == 2 || dir == 0) && data->map[(int)newya][newx1a - (dir % 2)] == '1'))
 	{
 		
 		data->ray_x = (double)newx1a;
@@ -59,7 +65,7 @@ int	control_b(t_data *data, double newxb, int newy1b, int dir)
         return (0);  // Gestisci l'errore come preferisci, qui stoppo il controllo
     }
 	if (((dir == 1 || dir == 3) && (data->map[newy1b - (dir/2)][(int)floor(newxb)] == '1'))
-				|| ((dir == 0 || dir == 2) && data->map[newy1b - (dir/2)][(int)floor(newxb)] == '1'))
+				|| ((dir == 0 || dir == 2) && data->map[newy1b - (dir%2)][(int)floor(newxb)] == '1'))
 	{
 		printf("contr_b = x = %f, y = %d\n", newxb, newy1b);
 		data->ray_x = newxb;
@@ -114,7 +120,7 @@ double	ft_ray_lenght_min_1079(t_data *data,double  q, double m)
 	while (newx1a <= data->map_l &&  newx1a > 0)
 	{
 		newya = (m * (double)newx1a) + q;
-		if (control_a(data,newx1a,newya, 1))
+		if (control_a(data,newx1a,newya, 0))
 		{
 			hypotena = hypot(fabs(data->player.pos_x - newx1a), fabs(data->player.pos_y - newya));
 			break ;

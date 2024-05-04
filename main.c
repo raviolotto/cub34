@@ -10,7 +10,6 @@ int main(void)
 	double pi = 3.141592653589793;
 	double hp = hypot(3, 3);
 
-
-	printf("il numero op1  = %d" , (int)ceil(PI));
+	printf("il numero op1  = %d" ,(int)((0.00393 * 3) + 3.155));
 	return (0);
 }

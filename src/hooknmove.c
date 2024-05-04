@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 13:23:32 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/02 14:06:17 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/03 20:58:11 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,15 @@ int	controls_working(int command, t_data *data)
 	if (command == 115 || command == 65364)
 		printf("stai andando indietro\n");
 	if (command == 97 || command == 65361)
-		printf("stai andando a sinistra\n");
+	{
+		data->player.mov_ang++;
+		ft_raycast1(data);
+	}
 	if (command == 100 || command == 65363)
-		printf("stai andando a destra\n");
+	{
+		data->player.mov_ang--;
+		ft_raycast1(data);
+	}
 	return (1);
 }
 
