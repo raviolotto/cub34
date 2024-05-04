@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:05:21 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/04 14:50:53 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/04 19:37:49 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	player_dir(t_data *data)
 	else if (c == 'N')
 	{
 		write(1, "a\n", 2);
-		data->player.mov_ang = 721;
+		data->player.mov_ang = 720;
 	}
 	else if (c == 'S')
 	{
