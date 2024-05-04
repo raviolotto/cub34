@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:45:02 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/04 09:45:38 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/04 15:08:51 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,17 @@ int ft_floor(double i)
 serve per sostituire i controlli troppo lunghi, e setta ray x e y con le coord. di a;
 dir è un modificatore che può cambiere il risultato dei controlli, il suo valore dipende
 dalla direzione della semiretta:
-	1079: dir = 1
-	2160: dir = 3
-	3239: dir = 2
-mag 3239: dir = 0
 */
 int	control_a(t_data *data, int newx1a, double newya, int dir)
 {
-	 if (newx1a < 0 || newx1a >= data->map_l || newya < 0 || newya >= data->map_h) {
-        //printf("Tentativo di accesso fuori dai limiti: x=%d, y=%f, ray n = %f\n", newx1a, newya, data->player.mov_ang);
-        return 0;  // Gestisci l'errore come preferisci, qui stoppo il controllo
-    }
-	if ((((dir == 1 || dir == 3) && data->map[ft_floor(newya)][newx1a - (dir % 2)] == '1'))
-			|| ((dir == 2 || dir == 0) && data->map[ft_floor(newya)][newx1a - (dir / 2)] == '1'))
+	
+	//  if (newx1a < 0 || newx1a >= data->map_l || newya < 0 || newya >= data->map_h) {
+    //     //printf("Tentativo di accesso fuori dai limiti: x=%d, y=%f, ray n = %f\n", newx1a, newya, data->player.mov_ang);
+    //     return (0);  // Gestisci l'errore come preferisci, qui stoppo il controllo
+    // }
+	printf("\ncontr_a = x = %d, y = %f\n\n", newx1a, newya);
+	if ((data->map[ft_floor(newya)][newx1a - dir] == '1'))
 	{
-		printf("contr_a = x = %d, y = %f\n", newx1a, newya);
 		data->ray_x = (double)newx1a;
 		data->ray_y = newya;
 		return (1);
@@ -50,21 +46,18 @@ int	control_a(t_data *data, int newx1a, double newya, int dir)
 serve per sostituire i controlli troppo lunghi, e setta ray x e y con le coord. di b;
 dir è un modificatore che può cambiere il risultato dei controlli, il suo valore dipende
 dalla direzione della semiretta:
-	1079: dir = 1
-	2160: dir = 0
-	3239: dir = 2
-mag 3239: dir = 3
 */
 int	control_b(t_data *data, double newxb, int newy1b, int dir)
 {
-	if (newxb <= 0 || newxb >= ft_strlen() || newy1b <= 0 || newy1b >= data->map_h) {
-        //printf("Tentativo di accesso fuori dai limiti: x=%f, y=%d, ray n = %f\n", newxb, newy1b, data->player.mov_ang);
-        return (0);  // Gestisci l'errore come preferisci, qui stoppo il controllo
-    }
-	if (((dir == 1 || dir == 3) && (data->map[newy1b - (dir%2)][ft_floor(newxb)] == '1'))
-				|| ((dir == 0 || dir == 2) && data->map[newy1b - (dir / 2)][ft_floor(newxb)] == '1'))
+	// printf("controlb\n");
+	// if (newxb <= 0 || newxb >= data->map_l || newy1b < 0 || newy1b >= data->map_h) {
+    //     //printf("Tentativo di accesso fuori dai limiti: x=%f, y=%d, ray n = %f\n", newxb, newy1b, data->player.mov_ang);
+    //     return (0);  // Gestisci l'errore come preferisci, qui stoppo il controllo
+    // }
+	printf("\ncontr_b = x = %f, y = %d\n\n", newxb, newy1b);
+	if (((data->map[newy1b - dir][ft_floor(newxb)] == '1')))
 	{
-		printf("contr_b = x = %f, y = %d\n", newxb, newy1b);
+		
 		data->ray_x = newxb;
 		data->ray_y = (double)newy1b;
 		return (1);
@@ -107,28 +100,68 @@ double	ft_ray_lenght_min_1079(t_data *data,double  q, double m)
 	double	newya;
 	int		newy1b;
 	double	newxb;
-
+	double hypotena;
+	double hypotenb;
+	
+	hypotena = -1;
+	hypotenb = -1;
 	newx1a = ceil(data->player.pos_x);
 	newy1b = ceil(data->player.pos_y);
 	while (1)
 	{
-		newya = fma(m, (double)newx1a, q);
-		newxb = ((double)newy1b/m) - (q/m);
-		printf("m = %f, q = %f, newx1a = %d, newy1b = %d\n", m, q, newx1a, newy1b);
-		if (control_a(data,newx1a,newya, 0) && control_b(data, newxb, newy1b, 0))
-			return (control_ab(data, newx1a, newya));
-		if (control_a(data,newx1a,newya, 0))
-			return (hypot(fabs(data->player.pos_x - newx1a)
-					, fabs(data->player.pos_y - newya)));
-		if (control_b(data, newxb, newy1b, 0))
-			return (hypot(fabs(data->player.pos_x - newxb), fabs(data->player.pos_y - newy1b)));
+		newya = (m * (double)newx1a) + q;
+		
+		if (newya <= 0 || newx1a <= 0 || newya > 15 || newx1a > (int)ft_strlen(data->map[ft_floor(newya)]) - 1)
+			break;
+		if (control_a(data,newx1a,newya, 1))
+		{
+			hypotena = hypot(fabs(data->player.pos_x - newx1a), fabs(data->player.pos_y - newya));
+			break ;
+		}
 		newx1a++;
-		newy1b++;
-		printf("A(%d, %f) B(%f, %d)\n",newx1a, newya, newxb, newy1b);
 	}
-	printf("\n----------------MIN1079------------errore, finito senza muro A(%d, %f) B(%f, %d)\n \n",newx1a, newya, newxb, newy1b);
+	while (1)
+	{
+		newxb = ((double)newy1b/m) - (q/m);
+		if (newy1b <= 0 || newxb <= 0 || newy1b > 15 || newxb > ft_strlen(data->map[ft_floor(newy1b)]) -1)
+			break;
+		if (control_b(data, newxb, newy1b, 0))
+		{
+			hypotenb = hypot(fabs(data->player.pos_x - newxb), fabs(data->player.pos_y - newy1b));
+			break ;
+		}
+		newy1b++;
+	}
+	printf("newxb = %f, newy1b = %d\n newx1a = %d newya = %f\n m = %f, q = %f\n", newxb, newy1b, newx1a, newxb,m , q);
+	if ((hypotena + hypotenb) == -2)
+		return((double)printf("\n----------------------------errore, finito senza muro A(%d, %f) B(%f, %d)\n \n",newx1a, newya, newxb, newy1b));
+	if (hypotenb <= hypotena)
+		return (hypotenb);
+	else if (control_a(data,newx1a,newya, 0))
+		return(hypotena);
 	return (0);
 }
+		
+	
+// 	while ((newx1a < data->map_l &&  newx1a >= 0)
+// 		|| (newy1b >= 0 && newy1b < data->map_h))
+// 	{
+// 		newya = fma(m, (double)newx1a, q);
+// 		newxb = ((1.0 / m) * (double)newy1b) - q ;
+// 		if (control_a(data,newx1a,newya, 1) && control_b(data, newxb, newy1b, 0))
+// 			return (control_ab(data, newx1a, newya));
+// 		if (control_a(data,newx1a,newya, 1))
+// 			return (hypot(fabs(data->player.pos_x - newx1a)
+// 					, fabs(data->player.pos_y - newya)));
+// 		if (control_b(data, newxb, newy1b, 1))
+// 			return (hypot(fabs(data->player.pos_x - newxb), fabs(data->player.pos_y - newy1b)));
+// 		newx1a++;
+// 		newy1b++;
+// 		printf("A(%d, %f) B(%f, %d)\n",newx1a, newya, newxb, newy1b);
+// 	}
+// 	printf("\n----------------------------errore, finito senza muro A(%d, %f) B(%f, %d)\n \n",newx1a, newya, newxb, newy1b);
+// 	return (0);
+// }
 
 /*
 ritorna la lunghezza del ray sul secondo quadrante, setta coord ray x e y.
@@ -140,29 +173,64 @@ double ft_ray_lenght_min_2160(t_data *data,double  q, double m)
 	double newya;
 	int newy1b;
 	double newxb;
+	double hypotena;
+	double hypotenb;
 
+	hypotena = 0;
+	hypotenb = 0;
 	newx1a = floor(data->player.pos_x);
 	newy1b = ceil(data->player.pos_y);
-	while ((newx1a <= data->map_l &&  newx1a >= 0)
-		|| (newy1b >= 0 && newy1b <= data->map_h))
+	while (1)
 	{
-		newya = fma(m, newx1a, q);
-		newxb = ((double)newy1b/m) - (q/m);
-		printf("m = %f, q = %f, newx1a = %d, newy1b = %d\n", m, q, newx1a, newy1b);
-
-		if (control_a(data,newx1a,newya, 3) && control_b(data, newxb, newy1b, 0))
-			return (control_ab(data, newx1a, newya));
-		if (control_a(data,newx1a,newya, 3))
-			return (hypot(fabs(data->player.pos_x - newx1a)
-					, fabs(data->player.pos_y - newya)));
-		if (control_b(data, newxb, newy1b, 0))
-			return (hypot(fabs(data->player.pos_x - newxb), fabs(data->player.pos_y - newy1b)));
+		newya = (m * (double)newx1a) + q;
+		if (newya <= 0 || newx1a <= 0 || newya > 15 || newx1a > (int)ft_strlen(data->map[ft_floor(newya)- 1]) - 1)
+			break;
+		if (control_a(data,newx1a,newya, 1))
+		{
+			hypotena = hypot(fabs(data->player.pos_x - newx1a), fabs(data->player.pos_y - newya));
+			break ;
+		}
 		newx1a--;
+	}
+	while (1)
+	{
+		newxb = ((double)newy1b/m) - (q/m);
+		if (newy1b <= 0 || newxb <= 0 || newy1b > 15 || newxb > ft_strlen(data->map[ft_floor(newy1b)]) -1)
+			break;
+		if (control_b(data, newxb, newy1b, 0))
+		{
+			hypotenb = hypot(fabs(data->player.pos_x - newxb), fabs(data->player.pos_y - newy1b));
+			break ;
+		}
 		newy1b++;
 	}
-	write(1, "-----------------------MIN2160----------errore, finito senza muro\n", 67);
+	printf("newxb = %f, newy1b = %d\n newx1a = %d newya = %f\n m = %f, q = %f\n", newxb, newy1b, newx1a, newxb,m , q);
+	if (!(hypotena + hypotenb))
+		return((double)printf("\n----------------------------errore, finito senza muro A(%d, %f) B(%f, %d)\n \n",newx1a, newya, newxb, newy1b));
+	if (hypotenb <= hypotena)
+		return (hypotenb);
+	else if (control_a(data,newx1a,newya, 1))
+		return(hypotena);
 	return (0);
 }
+	// while ((newx1a <= data->map_l &&  newx1a >= 0)
+	// 	|| (newy1b >= 0 && newy1b <= data->map_h))
+	// {
+	// 	newya = fma(m, newx1a, q);
+	// 	newxb = 1/m * (newy1b - q);
+	// 	if (control_a(data,newx1a,newya, 3) && control_b(data, newxb, newy1b, 0))
+	// 		return (control_ab(data, newx1a, newya));
+	// 	if (control_a(data,newx1a,newya, 3))
+	// 		return (hypot(fabs(data->player.pos_x - newx1a)
+	// 				, fabs(data->player.pos_y - newya)));
+	// 	if (control_b(data, newxb, newy1b, 0))
+	// 		return (hypot(fabs(data->player.pos_x - newxb), fabs(data->player.pos_y - newy1b)));
+	// 	newx1a--;
+	// 	newy1b++;
+	// }
+	// write(1, "errore, finito senza muro\n", 27);
+	// return (0);
+
 
 /*
 ritorna la lunghezza del ray sul terzo quadrante, setta coord ray x e y.
@@ -174,29 +242,64 @@ double ft_ray_lenght_min_3239(t_data *data,double  q, double m)
 	double newya;
 	int newy1b;
 	double newxb;
+	double hypotena;
+	double hypotenb;
 
-	newx1a = floor(data->player.pos_x);
-	newy1b = floor(data->player.pos_y);
-	while ((newx1a <= data->map_l &&  newx1a >= 0)
-		|| (newy1b >= 0 && newy1b <= data->map_h))
+	hypotena = 0;
+	hypotenb = 0;
+	newx1a = ft_floor(data->player.pos_x);
+	newy1b = ft_floor(data->player.pos_y);
+	while (1)
 	{
-		newya = fma(m, newx1a, q);
-		newxb = ((double)newy1b/m) - (q/m);
-		printf("m = %f, q = %f, newx1a = %d, newy1b = %d\n", m, q, newx1a, newy1b);
-
-		if (control_a(data,newx1a,newya, 3) && control_b(data, newxb, newy1b, 3))
-			return (control_ab(data, newx1a, newya));
-		if (control_a(data,newx1a,newya, 3))
-			return (hypot(fabs(data->player.pos_x - newx1a)
-					, fabs(data->player.pos_y - newya)));
-		if (control_b(data, newxb, newy1b, 3))
-			return (hypot(fabs(data->player.pos_x - newxb), fabs(data->player.pos_y - newy1b)));
+		newya = (m * (double)newx1a) + q;
+		if (newya <= 0 || newx1a <= 0 || newya >= 15 || newx1a > (int)ft_strlen(data->map[ft_floor(newya)]) - 1)
+			break;
+		if (control_a(data,newx1a,newya, 1))
+		{
+			hypotena = hypot(fabs(data->player.pos_x - newx1a), fabs(data->player.pos_y - newya));
+			break ;
+		}
 		newx1a--;
+	}
+	while (1)
+	{
+		newxb = ((double)newy1b/m) - (q/m);
+		if (newy1b <= 0 || newxb <= 0 || newy1b > 15 || newxb > ft_strlen(data->map[ft_floor(newy1b)]) - 1)
+			break;
+		if (control_b(data, newxb, newy1b, 1))
+		{
+			hypotenb = hypot(fabs(data->player.pos_x - newxb), fabs(data->player.pos_y - newy1b));
+			break ;
+		}
 		newy1b--;
 	}
-	write(1, "-----------------------Min3239----------errore, finito senza muro\n", 67);
+	printf("newxb = %f, newy1b = %d\n newx1a = %d newya = %f\n m = %f, q = %f\n", newxb, newy1b, newx1a, newxb,m , q);
+	if (!(hypotena + hypotenb))
+		return((double)printf("\n----------------------------errore, finito senza muro A(%d, %f) B(%f, %d)\n \n",newx1a, newya, newxb, newy1b));
+	if (hypotenb <= hypotena)
+		return (hypotenb);
+	else if (control_a(data,newx1a,newya, 1))
+		return(hypotena);
 	return (0);
 }
+	// while ((newx1a <= data->map_l &&  newx1a >= 0)
+	// 	|| (newy1b >= 0 && newy1b <= data->map_h))
+	// {
+	// 	newya = fma(m, newx1a, q);
+	// 	newxb = 1/m * (newy1b - q);
+	// 	if (control_a(data,newx1a,newya, 2) && control_b(data, newxb, newy1b, 2))
+	// 		return (control_ab(data, newx1a, newya));
+	// 	if (control_a(data,newx1a,newya, 2))
+	// 		return (hypot(fabs(data->player.pos_x - newx1a)
+	// 				, fabs(data->player.pos_y - newya)));
+	// 	if (control_b(data, newxb, newy1b, 2))
+	// 		return (hypot(fabs(data->player.pos_x - newxb), fabs(data->player.pos_y - newy1b)));
+	// 	newx1a--;
+	// 	newy1b--;
+	// }
+	// write(1, "errore, finito senza muro\n", 27);
+	// return (0);
+
 
 /*
 ritorna la lunghezza del ray sul quarto quadrante, setta coord ray x e y.
@@ -208,28 +311,64 @@ double ft_ray_lenght_mag_3239(t_data *data,double  q, double m)
 	double newya;
 	int newy1b;
 	double newxb;
+	double hypotena;
+	double hypotenb;
 
+	hypotena = 0;
+	hypotenb = 0;
 	newx1a = ceil(data->player.pos_x);
 	newy1b = floor(data->player.pos_y);
-	while ((newx1a <= data->map_l &&  newx1a >= 0)
-		|| (newy1b >= 0 && newy1b <= data->map_h))
+	while (1)
 	{
-		newya = fma(m, newx1a, q);
-		newxb = ((double)newy1b/m) - (q/m);
-		printf("m = %f, q = %f, newx1a = %d, newy1b = %d\n", m, q, newx1a, newy1b);
-		if (control_a(data,newx1a,newya, 0) && control_b(data, newxb, newy1b, 3))
-			return (control_ab(data, newx1a, newya));
+		newya = (m * (double)newx1a) + q;
+		if (newya <= 0 || newx1a <= 0 || newya > 15 || newx1a > (int)ft_strlen(data->map[ft_floor(newya)]) - 1)
+			break;
 		if (control_a(data,newx1a,newya, 0))
-			return (hypot(fabs(data->player.pos_x - newx1a)
-					, fabs(data->player.pos_y - newya)));
-		if (control_b(data, newxb, newy1b, 3))
-			return (hypot(fabs(data->player.pos_x - newxb), fabs(data->player.pos_y - newy1b)));
-		newx1a--;
+		{
+			hypotena = hypot(fabs(data->player.pos_x - newx1a), fabs(data->player.pos_y - newya));
+			break ;
+		}
+		newx1a++;
+	}
+	while (1)
+	{
+		newxb = ((double)newy1b/m) - (q/m);
+		if (newy1b <= 0 || newxb <= 0 || newy1b > 15 || newxb > ft_strlen(data->map[ft_floor(newy1b)]) - 1)
+			break;
+		if (control_b(data, newxb, newy1b, 1))
+		{
+			hypotenb = hypot(fabs(data->player.pos_x - newxb), fabs(data->player.pos_y - newy1b));
+			break ;
+		}
 		newy1b--;
 	}
-	write(1, "-----------------------MAG3239----------errore, finito senza muro\n", 67);
+	printf("newxb = %f, newy1b = %d\n newx1a = %d newya = %f\n m = %f, q = %f\n", newxb, newy1b, newx1a, newxb,m , q);
+	if (!(hypotena + hypotenb))
+		return((double)printf("\n----------------------------errore, finito senza muro A(%d, %f) B(%f, %d)\n \n",newx1a, newya, newxb, newy1b));
+	if (hypotenb <= hypotena)
+		return (hypotenb);
+	else if (control_a(data,newx1a,newya, 0))
+		return(hypotena);
 	return (0);
 }
+// 	while ((newx1a <= data->map_l &&  newx1a >= 0)
+// 		|| (newy1b >= 0 && newy1b <= data->map_h))
+// 	{
+// 		newya = fma(m, newx1a, q);
+// 		newxb = 1/m * (newy1b - q);
+// 		if (control_a(data,newx1a,newya, 0) && control_b(data, newxb, newy1b, 3))
+// 			return (control_ab(data, newx1a, newya));
+// 		if (control_a(data,newx1a,newya, 0))
+// 			return (hypot(fabs(data->player.pos_x - newx1a)
+// 					, fabs(data->player.pos_y - newya)));
+// 		if (control_b(data, newxb, newy1b, 3))
+// 			return (hypot(fabs(data->player.pos_x - newxb), fabs(data->player.pos_y - newy1b)));
+// 		newx1a--;
+// 		newy1b--;
+// 	}
+// 	write(1, "errore, finito senza muro\n", 27);
+// 	return (0);
+// }
 
 /*
 colacola la distanza tra il punto del muro e il PIANO dl giocatore, 
@@ -318,14 +457,15 @@ void ft_raycast1(t_data *data)
 {
 	int i;
 
-	i = 0;
+	i = 720;
 	data->rad_p = (data->player.mov_ang * CONST_RAD + (CONST_RAD / 2.0)) - 1.0471975511;
-	while(i++ < 720)
+	while(i-- > 0)
 	{
 		data->rad_ray = data->player.mov_ang * CONST_RAD + (CONST_RAD / 2.0);
 		if (data->player.mov_ang == 4320)
 			data->player.mov_ang = 0;
 		ft_ray_in_plane(data, i);
+		printf("mov ang %f\n", data->player.mov_ang);
 		data->player.mov_ang++;
 	}
 }

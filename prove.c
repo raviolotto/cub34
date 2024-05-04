@@ -7,9 +7,10 @@
 
 int main(void)
 {
-	double pi = 3.141592653589793;
-	double hp = hypot(3, 3);
+	int a;
+	double t = 765.6755;
+	a = ceil(t);
 
-	printf("il numero op1  = %d" ,(int)((0.00393 * 3) + 3.155));
-	return (0);
+	printf("il numero op1  = %d, %f" , a, t);
+	
 }
