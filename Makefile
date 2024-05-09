@@ -6,7 +6,7 @@
 #    By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2024/05/09 18:33:13 by mcamilli         ###   ########.fr        #
+#    Updated: 2024/05/09 18:42:20 by mcamilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,6 @@ $(NAME) : $(OBJ)
 	make all bonus -C lib/libft
 	make -C lib/ft_printf
 	make -C mlx_linux/
-#	$(CC) $(OBJ) $(CFLAGS) $(LIBFT) $(PRINTF) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 	@echo "\033[32mcubitron compiled\033[0m"
 clean:
@@ -59,7 +58,7 @@ fclean: clean
 
 re: fclean all
 
-be: re
+we: re
 	gdb ./cub3d
 
 .PHONY:		all clean fclean re

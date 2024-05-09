@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:18:50 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/09 17:44:42 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/09 20:54:40 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 
 void	init(t_data *data)
 {
-	data->info_list = NULL;
 	data->map = NULL;
+	data->info_list = NULL;
 	data->player.pos_x = 0;
 	data->player.pos_y = 0;
+	data->player.mov_ang = 0;
+	data->ray_x = 0;
+	data->ray_y = 0;
+	data->rad_p = 0;
+	data->rad_ray = 0;
+	data->ray_uncasted =0;
 	if(data->info_list == NULL)
 		ft_putstr_fd("amooore\n", 2);
+	printf("----------------ok\n");
 
 }
 
