@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:54:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/03 04:09:58 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/09 18:31:59 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	free_list(t_infos *list)
 
 void	free_all(t_data *data)
 {
-	
+
 	free_matrix(data->info);
 	free_matrix(data->map);
 	free_list(data->info_list);
@@ -119,3 +119,17 @@ char	**matrix_newline(char **matrix, char *str)
 	free_matrix(matrix);
 	return (newmatrix);
 }
+
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->mini.addr + (y * data->mini.line_length + x * (data->mini.bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
+}
+
+int	create_trgb(int t, int r, int g, int b)
+{
+	return (t << 24 | r << 16 | g << 8 | b);
+}
+

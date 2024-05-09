@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/02 18:54:22 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:52:32 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 
 # define SCREEN_W 720
 # define SCREEN_H 450
+# define RED	"\033[31m"
+# define RESET	"\033[0m"
 //mi servono ?
 # define TILE_SIZE 32
 # define ROTATION_SPEED 0.045
@@ -52,6 +54,9 @@ int		exit_point(t_data *data);
 int		controls_working(int command, t_data *data);
 void	ft_raycast1(t_data *data);
 void	ft_fakeray(t_data *data, int i);
+void	ft_raycast2(t_data *data);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		create_trgb(int t, int r, int g, int b);
 
 #endif
 

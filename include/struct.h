@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:25:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/02 09:20:42 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:44:06 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,11 @@ typedef struct s_mini
 {
 	void	*mlx;
 	void	*mlx_win;
-	t_img	img;
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 }t_mini;
 
 typedef struct s_data
@@ -64,6 +68,7 @@ typedef struct s_data
 	int			map_l;
 	char		**map;
 	char		**info;
+	int			ray_uncasted; //rdebug per raycast;
 	double		ray_lenght;
 	double		ray_x;
 	double		ray_y;

@@ -4,8 +4,8 @@
 ⠀⠴⠿⠷⠶⣶⣦⣤⣤⣀⡀⠀⠀⠀⢸⣿⡀⠉⠛⢽⢦⣀⠀⠀⠀⠀⠑⢄⣀⣀⣠⡤⢴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀		vedere per bene in ogni caso se hai dubbi
 ⠀⠀⠀⠀⠀⠀⠈⠙⣻⡿⠟⠒⠀⠀⢾⣙⣇⡠⠖⠋⠉⡉⠀⠀⠀⠀⠀⠈⠻⡏⠀⠀⡸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀		scrivimi :)
 ⠀⠀⠀⠀⠀⢀⡤⠊⠁⠀⠀⠀⠀⠀⠈⠿⠏⠀⡠⠊⢉⣉⡉⠲⢄⠀⠀⠀⠀⢹⣄⣰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⡰⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠁⡼⠋⠉⠙⢷⣌⣣⡀⠀⠀⠚⣡⡯⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀			~capire cosa fare a sto punto e studiare il ray
-⠀⠀⢀⡞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠇⣸⠀⠀⣠⡀⠀⢻⣟⠓⠀⠀⢸⢿⠷⡞⠉⠒⢄⠀⠀⣀⡀⠀⠀⠀⠀			casting;
+⠀⠀⠀⠀⡰⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠁⡼⠋⠉⠙⢷⣌⣣⡀⠀⠀⠚⣡⡯⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢀⡞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠇⣸⠀⠀⣠⡀⠀⢻⣟⠓⠀⠀⢸⢿⠷⡞⠉⠒⢄⠀⠀⣀⡀⠀⠀⠀⠀
 ⠀⢀⡞⠀⠀⠀⠀⠀⠀⠀⣀⣤⠀⠀⠀⠀⠀⠀⢿⠀⢀⣯⡽⠀⠀⢿⡄⠀⢸⣿⣸⠀⠈⢆⠀⠈⡷⠉⢁⣈⣑⣄⠀⠀
 ⠀⡸⠀⠀⠀⠀⣀⣤⣶⣿⡿⠋⠀⠀⠀⠀⢀⣠⡬⢧⣸⣿⠃⠀⠀⠀⢣⣀⣾⣿⣏⡀⠀⢀⡇⠀⡇⡴⢉⣀⠤⠼⣧⠀			~la lista con le informazioni potrebbe e essere
 ⢀⠇⠀⠀⣠⣾⠿⠛⠉⡟⠀⠀⠀⠀⠀⢳⣼⡋⢶⢾⡉⠓⠤⡠⠤⠒⠊⠙⣿⣿⠿⠃⠀⣸⡇⠀⢉⣇⡼⢀⡠⠤⣼⡇			scomoda valutare di "estrarla"
@@ -29,11 +29,21 @@
 ⠀⠀⠀⠀⠀⠀⠉⠛⠻⠶⠶⠾⠛⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 lista di cose;
 
-- nel parser ho dovuto inserire cose per i comandi,  
+- nel parser ho dovuto inserire cose per i comandi,
 nel fare questo ho messo i cosi per uscire, ma non se
  po freaa funziona solo exit.
 
- -finire il raycasting, ho fatto due versioni, una alternative e una originale, cambio il nome in 
+ -finire il raycasting, ho fatto due versioni, una alternative e una originale, cambio il nome in
  ray1.c in base a quale compilo, alternative ha molte righe ma dovrebbe essere piu comprensibile, ho trovato
  l'errore (i controlli prima di vedere la matrice)
  - tutti e due i raycasting fanno sempre gli stessi valori su ray y e ray x
+
+
+===================================retta n0, ray lenght 1.751816, ray_x 24.000000, ray_y 4.708529, mov_ang 4220.000000
+mov ang 4220.000000
+newxb = 0.000000, newy1b = 0
+ newx1a = 1 newya = 0.000000
+ m = -2.511826, q = 0.000000
+
+----------------------------errore, finito senza muro A(1, -2.511826) B(0.000000, 0)
+ 

@@ -6,7 +6,7 @@
 #    By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2024/05/02 18:49:02 by mcamilli         ###   ########.fr        #
+#    Updated: 2024/05/09 18:33:13 by mcamilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,5 +58,8 @@ fclean: clean
 	@echo "\033[33m& no name\033[0m"
 
 re: fclean all
+
+be: re
+	gdb ./cub3d
 
 .PHONY:		all clean fclean re
