@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:45:02 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/10 15:25:24 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:46:50 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ double ft_ray_lenght_min_1079(t_data *data, double q, double m)
 			hypotena = -1;
 			break;
 		}
-		printf("------------------------------------newya 113 = %f\n", newya);
+		//printf("------------------------------------newya 113 = %f\n", newya);
 		if (control_a(data, newx1a, newya, 0))
 		{
 		//	printf("trovato a!\n");
@@ -147,7 +147,8 @@ double ft_ray_lenght_min_1079(t_data *data, double q, double m)
 	{
 		return (hypotenb);
 	}
-	if (printf("rdata->map_h4  ") && control_a(data, newx1a, newya, 0))
+	// if (printf("rdata->map_h4  ") && control_a(data, newx1a, newya, 0))
+	if (control_a(data, newx1a, newya, 0))
 	{
 		return (hypotena);
 	}

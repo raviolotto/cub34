@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:18:50 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/10 14:21:58 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/05/10 16:02:19 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@ void	init(t_data *data)
 	data->rad_p = 0;
 	data->rad_ray = 0;
 	data->ray_uncasted =0;
-	if(data->info_list == NULL)
-		ft_putstr_fd("amooore\n", 2);
-	printf("----------------ok\n");
-
 }
 
 int	otherexit(void)
@@ -39,9 +35,7 @@ int main(int ac, char **av)
 {
 	t_data data;
 
-	//inizializza le robe nel caso ci pui aggiungere quello che ti serve
 	init(&data);
-	//iniziano tutti i controlli
 	if(parser(ac, av, &data) == 1)
 	{
 		printf(":(\n");
@@ -63,7 +57,8 @@ int main(int ac, char **av)
 		data.mini.img = mlx_new_image(data.mini.mlx, SCREEN_W, SCREEN_H);
 		data.mini.addr = mlx_get_data_addr(data.mini.img, &data.mini.bits_per_pixel, &data.mini.line_length, &data.mini.endian);
 		ft_raycast1(&data);
-		mlx_hook(data.mini.mlx_win, 17, 0, otherexit, NULL);
+		mlx_hook(data.mini.mlx_win, 17, 0, exit_point, &data);
+		mlx_hook(data.mini.mlx_win, 2, 1L<<0, controls_working, &data);
 		mlx_key_hook(data.mini.mlx_win, controls_working, &data);
 		mlx_loop(data.mini.mlx);
 		return(1);
