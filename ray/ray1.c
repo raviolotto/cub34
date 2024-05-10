@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:45:02 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/10 14:27:17 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:25:24 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -413,10 +413,10 @@ void ft_raycast1(t_data *data)
 {
 	int i;
 
-	i = 720;
+	i = 0;
 	data->player.mov_ang = data->player.last_mov_ang;
 	data->rad_p = (data->player.mov_ang * CONST_RAD + (CONST_RAD / 2.0)) - 1.0471975511;
-	while (i-- > 0)
+	while (i++ < 720)
 	{
 		data->rad_ray = data->player.mov_ang * CONST_RAD + (CONST_RAD / 2.0);
 		if (data->player.mov_ang == 4320)

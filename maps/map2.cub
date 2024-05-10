@@ -6,10 +6,10 @@ EA ../assets/east_texture.xpm
 
 WE ../assets/west_texture.xpm
 
-F 220,100,0
+F 100,100,100
 
 
-C 225,30,0
+C 255,255,0
 
 
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:54:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/09 18:31:59 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:14:51 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	print_matrix(char **matrix)
 	while(*matrix)
 	{
 		ft_putstr_fd(*matrix, 1);
-		//write(1, "\n", 1);
 		matrix++;
 	}
 }

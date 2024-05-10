@@ -6,38 +6,38 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 14:14:40 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/10 14:22:24 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:57:18 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-// t_infos *find_in_list(t_infos **info, int what)
-// {
-// 	t_info *tmp;
-// 	tmp = *info;
-// 	while(tmp->what != what)
-// 		tmp = tmp->next;
-// 	return(tmp);
-// }
+t_infos *find_in_list(t_infos *infos, int what)
+{
+	t_infos *tmp;
+	tmp = infos;
+	while(tmp->what != what)
+		tmp = tmp->next;
+	return(tmp);
+}
 
 void ft_floor_n_ceil(t_data *data, int col)
 {
 	int i;
-	// s_infos *floor;
-	// s_infos *ceil;
+	t_infos *floor;
+	t_infos *ceil;
 
 	i = 0;
-	// floor = find_in_list(data->info, 7);
-	// ceil = find_in_list(data->info, 6);
+	floor = find_in_list(data->info_list, 7);
+	ceil = find_in_list(data->info_list, 6);
 	while(i < 225)
 	{
-		my_mlx_pixel_put(data, col, i, create_trgb(0, 255, 255, 255));
+		my_mlx_pixel_put(data, col, i, create_trgb(0, (ft_atoi(ceil->color[0])), (ft_atoi(ceil->color[1])), (ft_atoi(ceil->color[2]))));
 		i++;
 	}
 	while(i < 450)
 	{
-		my_mlx_pixel_put(data, col, i, create_trgb(0, 255, 255, 255));
+		my_mlx_pixel_put(data, col, i, create_trgb(0, (ft_atoi(floor->color[0])), (ft_atoi(floor->color[1])), (ft_atoi(floor->color[2]))));
 		i++;
 	}
 }
