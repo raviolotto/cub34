@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:25:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/09 17:44:06 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:28:49 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_player
 	double	plane_x;
 	double	plane_y;
 	double	mov_ang;
+	double	last_mov_ang;
 	//double	mov_dir_x;
 	//double	mov_dir_y;
 	//double	cam_dir;

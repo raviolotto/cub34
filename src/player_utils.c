@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:05:21 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/09 19:14:21 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:28:38 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,13 @@ void	player_dir(t_data *data)
 
 	c = data->player.c;
 	if (c == 'W')
-	{
-		write(1, "a\n", 2);
-		data->player.mov_ang = 1800;
-	}
+		data->player.last_mov_ang = 1800;
 	else if (c == 'E')
-	{
-		write(1, "a\n", 2);
-		data->player.mov_ang = 3960;
-		//data->player.mov_ang = 400;
-	}
+		data->player.last_mov_ang = 3960;
 	else if (c == 'N')
-	{
-		write(1, "a\n", 2);
-		data->player.mov_ang = 2880;
-	}
+		data->player.last_mov_ang = 2880;
 	else if (c == 'S')
-	{
-		write(1, "a\n", 2);
-		data->player.mov_ang = 720;
-	}
+		data->player.last_mov_ang = 720;
 }
 
 void	player_pos(t_data *data)

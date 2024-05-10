@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooknmove.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 13:23:32 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/09 20:11:19 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:29:12 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,17 @@ int	controls_working(int command, t_data *data)
 		printf("stai andando indietro\n");
 	if (command == 97 || command == 65361)
 	{
-		printf("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
-		ft_raycast2(data);
+		data->player.last_mov_ang -= 1;
+		if (data->player.last_mov_ang == 0)
+			data->player.last_mov_ang = 4320;
+		ft_raycast1(data);
 	}
 	if (command == 100 || command == 65363)
 	{
-		printf("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
-		ft_raycast2(data);
+		data->player.last_mov_ang += 1;
+		if (data->player.last_mov_ang == 4320)
+			data->player.last_mov_ang = 0;
+		ft_raycast1(data);
 	}
 	return (1);
 }
