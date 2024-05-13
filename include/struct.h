@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:25:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/10 14:28:49 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/05/13 18:58:52 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_player
 	double	plane_y;
 	double	mov_ang;
 	double	last_mov_ang;
+	int		AB_12; //definisce se abbiamo a o b come punto trovato, serve per capire quale dei due é int tra x e y
 	//double	mov_dir_x;
 	//double	mov_dir_y;
 	//double	cam_dir;
@@ -75,6 +76,10 @@ typedef struct s_data
 	double		ray_y;
 	double		rad_p;
 	double		rad_ray;
+	void	*prova_E;
+	void	*prova_W;
+	void	*prova_N;
+	void	*prova_S;
 	t_infos		*info_list;
 	t_mini		mini;
 	t_player	player;

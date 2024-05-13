@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:45:02 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/10 15:46:50 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/05/13 18:59:50 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int control_a(t_data *data, int newx1a, double newya, int dir)
 	{
 		data->ray_x = (double)newx1a;
 		data->ray_y = newya;
+		data->player.AB_12 = 1;
 		return (1);
 	}
 	else
@@ -54,6 +55,7 @@ int control_b(t_data *data, double newxb, int newy1b, int dir)
 	{
 		data->ray_x = newxb;
 		data->ray_y = (double)newy1b;
+		data->player.AB_12 = 2;
 		return (1);
 	}
 	else

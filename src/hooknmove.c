@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooknmove.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 13:23:32 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/10 16:04:41 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:36:12 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,15 @@ int	controls_working(int command, t_data *data)
 	if (command == 119 || command == 65362)
 		printf("stai andando avanti\n");
 	if (command == 115 || command == 65364)
-		printf("stai andando indietro\n");
+	{
+		// int *x = 1;
+		// int *y = 1;
+
+		// data->prova_tex = mlx_xpm_file_to_image(data->mini.mlx, "east_texture.xpm", x, y);
+		// mlx_put_image_to_window(data->mini.mlx, data->mini.mlx_win, data->prova_tex, 1, 1);
+	}
+
+		//printf("stai andando indietro\n");
 	if (command == 97 || command == 65361)
 	{
 		data->player.last_mov_ang -= 2;
