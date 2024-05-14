@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/09 17:52:32 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/14 09:59:17 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	ft_fakeray(t_data *data, int i);
 void	ft_raycast2(t_data *data);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		create_trgb(int t, int r, int g, int b);
+void	fake_assests_init(t_data *data);
 
 #endif
 

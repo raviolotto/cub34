@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:18:50 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/13 17:27:23 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/14 10:03:26 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int main(int ac, char **av)
 		data.mini.mlx_win = mlx_new_window(data.mini.mlx ,SCREEN_W, SCREEN_H, "cubitron");
 		data.mini.img = mlx_new_image(data.mini.mlx, SCREEN_W, SCREEN_H);
 		data.mini.addr = mlx_get_data_addr(data.mini.img, &data.mini.bits_per_pixel, &data.mini.line_length, &data.mini.endian);
+		fake_assests_init(&data);
 		ft_raycast1(&data);
 		mlx_hook(data.mini.mlx_win, 17, 0, exit_point, &data);
 		mlx_hook(data.mini.mlx_win, 2, 1L<<0, controls_working, &data);

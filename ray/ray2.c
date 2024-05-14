@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 14:14:40 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/13 19:59:56 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/14 10:05:57 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ void ft_fakeray(t_data *data, int i)
 	else
 		point = data->player.dir_x - floor(data->player.dir_x);
 	int x = (int)round(point / 0.015625);
-	mlx_get_data_addr(data->prova_E, &bpp, &size_line, &endian);
 	char *image_data = mlx_get_data_addr(data->prova_E, &bpp, &size_line, &endian);
 	double image_part = (p * 0.1) / 32;
 	while (p > 0)
@@ -106,4 +105,4 @@ void ft_fakeray(t_data *data, int i)
 	my_mlx_pixel_put(data, i, 225, create_trgb(0, image_data[index], image_data[index + 1], image_data[index + 2]));
 	// printf("===================================retta n%d, ray lenght %f, ray_x %f, ray_y %f, mov_ang %f\n", i, data->ray_lenght, data->ray_x, data->ray_y, data->player.mov_ang);
 }
-*/
+
