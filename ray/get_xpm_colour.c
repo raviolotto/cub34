@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_xpm_colour.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 18:35:23 by jacopo            #+#    #+#             */
-/*   Updated: 2024/05/14 14:43:51 by mcamilli         ###   ########.fr       */
+/*   Created: 2024/05/14 13:50:39 by mcamilli          #+#    #+#             */
+/*   Updated: 2024/05/14 15:13:23 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../include/cub3d.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
+int*** ft_parse_xpm(char *tex, t_data *data, int *h, int *w)
+{
+	int		fd;
+	char	*str_tex;
+	char	**mtrx_tex;
+	fd = open(tex, O_RDONLY);
+	str_tex = get_next_file(fd);
+	close(fd);
+	mtrx_tex = ft_split(str_tex, '\n');
+	free(str_tex);
+	ft_str
 
-# include "../libft/libft.h"
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <stdio.h>
-# include <stdlib.h>
-
-char	*get_next_file(int fd);
-char	*get_next_line(int fd);
-#endif
+}

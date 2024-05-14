@@ -6,13 +6,13 @@
 #    By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2024/05/09 18:42:20 by mcamilli         ###   ########.fr        #
+#    Updated: 2024/05/14 19:44:32 by mcamilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 MAKEFLAGS += --silent
 
-NAME = cub3d
+NAME = cub3D
 LIBFT = lib/libft/libft.a
 PRINTF = lib/ft_printf/libftprintf.a
 
@@ -26,6 +26,7 @@ src = \
 	./src/info_check.c\
 	./src/player_utils.c\
 	./lib/gnl/get_next_line.c\
+	./lib/gnl/get_next_file.c\
 	./src/hooknmove.c\
 	./ray/ray1.c\
 	./ray/ray2.c\
@@ -59,6 +60,6 @@ fclean: clean
 re: fclean all
 
 we: re
-	gdb ./cub3d
+	gdb ./cub3D
 
 .PHONY:		all clean fclean re

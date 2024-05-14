@@ -7,10 +7,6 @@
 
 int main(void)
 {
-	int a;
-	double t = 765.6755;
-	a = ceil(t);
-
-	printf("il numero op1  = %d, %f" , a, t);
 	
+
 }
