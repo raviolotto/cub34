@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/15 11:40:49 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/15 18:20:42 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define CONST_RAD 0.001454441043329
 # define PI 3.141592653589793
 
-int		ft_wasd(int command, t_data *data);
+//int		ft_wasd(int command, t_data *data);
 int		ft_floor(double i);
 int		parser(int ac, char **av, t_data *data);
 int		lister(t_data *data);
