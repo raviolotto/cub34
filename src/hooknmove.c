@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 13:23:32 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/14 20:04:27 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/15 12:08:41 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	controls_working(int command, t_data *data)
 
 	if (command == 115 || command == 65364) // indietro
 	{
-		double m;
-		double q;
-		data->rad_p = (data->player.mov_ang * CONST_RAD + (CONST_RAD / 2.0)) - 1.0471975511;
-		m = -(1/tan(data->rad_p));
-		q = data->player.pos_y - (m * data->player.pos_x);
+		// double m;
+		// double q;
+		// data->rad_p = (data->player.mov_ang * CONST_RAD + (CONST_RAD / 2.0)) - 1.0471975511;
+		// m = -(1/tan(data->rad_p));
+		// q = data->player.pos_y - (m * data->player.pos_x);
 		// data->prova_tex = mlx_xpm_file_to_image(data->mini.mlx, "east_texture.xpm", x, y);
 		//mlx_put_image_to_window(data->mini.mlx, data->mini.mlx_win, data->prova_E, 1, 1);
 	}
