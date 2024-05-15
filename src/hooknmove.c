@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooknmove.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 13:23:32 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/10 16:04:41 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:52:58 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ int	controls_working(int command, t_data *data)
 		printf("stai andando indietro\n");
 	if (command == 97 || command == 65361)
 	{
-		data->player.last_mov_ang -= 2;
+		data->player.last_mov_ang -= 4;
 		if (data->player.last_mov_ang <= 0)
 			data->player.last_mov_ang = 4320;
 		ft_raycast1(data);
 	}
 	if (command == 100 || command == 65363)
 	{
-		data->player.last_mov_ang += 2;
+		data->player.last_mov_ang += 4;
 		if (data->player.last_mov_ang >= 4320)
 			data->player.last_mov_ang = 0;
 		ft_raycast1(data);

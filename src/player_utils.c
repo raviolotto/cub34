@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:05:21 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/10 14:28:38 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:48:31 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	player_pos(t_data *data)
 			if(data->map[y][x] == 'N' || data->map[y][x] == 'S'
 				|| data->map[y][x] == 'E' || data->map[y][x] == 'W')
 				{
-					data->player.pos_x = (float)(x + 1);
-					data->player.pos_y = y + 1;
+					data->player.pos_x = (float)(x + 1.5);
+					data->player.pos_y = y + 1.5;
 					data->player.c = data->map[y][x];
 					player_dir(data);
 					return ;
