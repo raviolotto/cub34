@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:45:02 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/13 18:59:50 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/15 11:51:43 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,7 +209,7 @@ double ft_ray_lenght_min_2160(t_data *data, double q, double m)
 		return ((double)printf("\n----------------------------errore, finito senza muro A(%d, %f) B(%f, %d)\n \n", newx1a, newya, newxb, newy1b));
 	if ((hypotenb <= hypotena || hypotena < 0) && hypotenb >= 0)
 		return (hypotenb);
-	if (printf("r224  ") && control_a(data, newx1a, newya, 1))
+	if (control_a(data, newx1a, newya, 1))
 		return (hypotena);
 	return (0);
 }
@@ -429,7 +429,7 @@ void ft_raycast1(t_data *data)
 		data->player.mov_ang++;
 	}
 	mlx_put_image_to_window(data->mini.mlx, data->mini.mlx_win, data->mini.img, 0, 0);
-	printf("===================================retta n%d, ray lenght %f, ray_x %f, ray_y %f, mov_ang %f\n", i, data->ray_lenght, data->ray_x, data->ray_y, data->player.mov_ang);
+	//printf("===================================retta n%d, ray lenght %f, ray_x %f, ray_y %f, mov_ang %f\n", i, data->ray_lenght, data->ray_x, data->ray_y, data->player.mov_ang);
 }
 
 

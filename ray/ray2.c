@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 14:14:40 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/14 19:02:50 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/15 12:15:04 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void ft_floor_n_ceil(t_data *data, int col)
 	}
 }
 
-/*
+
 void ft_fakeray(t_data *data, int i)
 {
 	int p;
@@ -73,7 +73,7 @@ void ft_fakeray(t_data *data, int i)
 	my_mlx_pixel_put(data, i, 225, create_trgb(0, 020, 100, 100));
 	// printf("===================================retta n%d, ray lenght %f, ray_x %f, ray_y %f, mov_ang %f\n", i, data->ray_lenght, data->ray_x, data->ray_y, data->player.mov_ang);
 }
-*/
+
 int get_pixel(t_data *data, int x, int y)
 {
 	int *dst;
@@ -130,6 +130,7 @@ void ft_fakeray(t_data *data, int i)
 }
 */
 
+/*
 void ft_fakeray(t_data *data, int i)
 {
 	int p;
@@ -159,3 +160,4 @@ void ft_fakeray(t_data *data, int i)
 	}
 	// printf("===================================retta n%d, ray lenght %f, ray_x %f, ray_y %f, mov_ang %f\n", i, data->ray_lenght, data->ray_x, data->ray_y, data->player.mov_ang);
 }
+*/

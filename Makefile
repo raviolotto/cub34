@@ -6,7 +6,7 @@
 #    By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2024/05/14 19:44:32 by mcamilli         ###   ########.fr        #
+#    Updated: 2024/05/15 11:42:51 by mcamilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ src = \
 	./lib/gnl/get_next_line.c\
 	./lib/gnl/get_next_file.c\
 	./src/hooknmove.c\
+	./src/hooknmove2.c\
 	./ray/ray1.c\
 	./ray/ray2.c\
 
