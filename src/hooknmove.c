@@ -6,12 +6,12 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 13:23:32 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/15 19:59:59 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:56:33 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-int ft_w(t_data *data)
+int ft_a(t_data *data)
 {
 	double m;
 	double q;
@@ -45,10 +45,9 @@ int	controls_working(int command, t_data *data)
 	// 	|| command == 115 || command == 65364//indietro
 	// 	|| command == 97 || command == 100 ) //sinistra destra
 	// 		ft_wasd(command, data);
-	if (command == 119 || command == 65362) //avanti
+	if (command == 97) //avanti
 	{
-		printf("avanti");
-		ft_w(data);
+		ft_a(data);
 	}
 	if (command == 65361) //sinistra
 	{
