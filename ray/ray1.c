@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:45:02 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/15 19:57:33 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:10:00 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -416,10 +416,10 @@ void ft_raycast1(t_data *data)
 {
 	int i;
 
-	i = 0;
+	i = -1;
 	data->player.mov_ang = data->player.last_mov_ang;
 	data->rad_p = (data->player.mov_ang * CONST_RAD + (CONST_RAD / 2.0)) - 1.0471975511;
-	while (i++ < 720)
+	while (++i < 720)
 	{
 		data->rad_ray = data->player.mov_ang * CONST_RAD + (CONST_RAD / 2.0);
 		if (data->player.mov_ang == 4320)
@@ -433,12 +433,3 @@ void ft_raycast1(t_data *data)
 }
 
 
-//funzione probabilmente inutile
-void ft_raycast2(t_data *data)
-{
-
-	// mlx_clear_window(data->mini.mlx, data->mini.mlx_win);
-	data->player.mov_ang = 1079;
-
-	ft_raycast1(data);
-}

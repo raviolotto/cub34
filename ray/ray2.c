@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 14:14:40 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/15 12:15:04 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/17 12:08:57 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void ft_fakeray(t_data *data, int i)
 	if (p > 225)
 		p = 225;
 	ft_floor_n_ceil(data, i);
-	while (p > 0)
+	while (p >= 0)
 	{
 			my_mlx_pixel_put(data, i, (225 - p), create_trgb(0, 020, 100, 100));
 			my_mlx_pixel_put(data, i, (225 + p), create_trgb(0, 020, 100, 100));
