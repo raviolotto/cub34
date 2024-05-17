@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/15 18:20:42 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/17 17:04:49 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,16 @@ void	print_matrix(char **matrix);
 void	free_all(t_data *data);
 void	print_list(t_infos *node);
 void	map_size(t_data *data);
-void	player_pos(t_data *data);
-void	player_pos(t_data *data);
+int		player_pos(t_data *data);
 int		exit_point(t_data *data);
 int		controls_working(int command, t_data *data);
 void	ft_raycast1(t_data *data);
 void	ft_fakeray(t_data *data, int i);
 void	ft_raycast2(t_data *data);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		create_trgb(int t, int r, int g, int b);
 void	fake_assests_init(t_data *data);
+t_infos *find_in_list(t_infos *infos, int what);
 
 #endif
 

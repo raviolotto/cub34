@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:45:02 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/17 12:10:00 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/17 16:54:14 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -352,6 +352,10 @@ sul primo quadrante
 void ft_set_ray_min_1079(t_data *data, double q, double m, int i)
 {
 	data->ray_lenght = ft_ray_on_plane(data, ft_ray_lenght_min_1079(data, q, m));
+		if(data->player.AB_12 == 1)
+		data->player.NSEW = 3;
+	else
+		data->player.NSEW = 1;
 	ft_fakeray(data, i);
 	// mlx_pixel_put(data->mini.mlx, data->mini.mlx_win, )
 }
@@ -363,6 +367,10 @@ sul secondo quadrante
 void ft_set_ray_min_2160(t_data *data, double q, double m, int i)
 {
 	data->ray_lenght = ft_ray_on_plane(data, ft_ray_lenght_min_2160(data, q, m));
+	if(data->player.AB_12 == 1)
+		data->player.NSEW = 4;
+	else
+		data->player.NSEW = 1;
 	ft_fakeray(data, i);
 }
 
@@ -373,6 +381,10 @@ sul terzo quadrante
 void ft_set_ray_min_3239(t_data *data, double q, double m, int i)
 {
 	data->ray_lenght = ft_ray_on_plane(data, ft_ray_lenght_min_3239(data, q, m));
+	if(data->player.AB_12 == 1)
+		data->player.NSEW = 4;
+	else
+		data->player.NSEW = 2;
 	ft_fakeray(data, i);
 }
 
@@ -383,6 +395,10 @@ sul quarto quadrante
 void ft_set_ray_mag_3239(t_data *data, double q, double m, int i)
 {
 	data->ray_lenght = ft_ray_on_plane(data, ft_ray_lenght_mag_3239(data, q, m));
+	if(data->player.AB_12 == 1)
+		data->player.NSEW = 3;
+	else
+		data->player.NSEW = 2;
 	ft_fakeray(data, i);
 }
 /*
@@ -421,6 +437,7 @@ void ft_raycast1(t_data *data)
 	data->rad_p = (data->player.mov_ang * CONST_RAD + (CONST_RAD / 2.0)) - 1.0471975511;
 	while (++i < 720)
 	{
+		data->player.NSEW = 0;
 		data->rad_ray = data->player.mov_ang * CONST_RAD + (CONST_RAD / 2.0);
 		if (data->player.mov_ang == 4320)
 			data->player.mov_ang = 0;

@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 13:23:32 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/17 12:05:10 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/17 17:19:13 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,22 +117,22 @@ int	controls_working(int command, t_data *data)
 {
 	if (command == 65307)
 		exit_point(data);
-	if (command == 97) //avanti
+	if (command == 97)
 		ft_a(data);
 	if (command == 100)
 		ft_d(data);
-	if (command == 115) //avanti
+	if (command == 115)
 		ft_s(data);
 	if (command == 119)
 		ft_w(data);
-	if (command == 65361) //sinistra
+	if (command == 65361)
 	{
 		data->player.last_mov_ang -= 8;
 		if (data->player.last_mov_ang <= 0)
 			data->player.last_mov_ang = 4320;
 		ft_raycast1(data);
 	}
-	if (command == 65363) //detra sinistra
+	if (command == 65363)
 	{
 		data->player.last_mov_ang += 8;
 		if (data->player.last_mov_ang >= 4320)

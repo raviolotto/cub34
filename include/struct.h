@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:25:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/14 16:29:45 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/17 16:39:14 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,10 @@ typedef struct s_player
 	double	plane_y;
 	double	mov_ang;
 	double	last_mov_ang;
-	int		AB_12; //definisce se abbiamo a o b come punto trovato, serve per capire quale dei due é int tra x e y
-	//double	mov_dir_x;
-	//double	mov_dir_y;
-	//double	cam_dir;
-	//double	rot_angle;
+	int		AB_12;
+	int		NSEW; //1n 2s 3e 4w
 }t_player;
 
-typedef struct s_xpm
-{
-	int		***north_tex;
-	int		north_h;
-	int		north_w;
-	int		***south_tex;
-	int		south_h;
-	int		south_w;
-	int		***east_tex;
-	int		east_h;
-	int		east_w;
-	int		***west_tex;
-	int		west_h;
-	int		west_w;
-}t_xpm;
 
 typedef struct s_img
 {
@@ -64,7 +46,7 @@ typedef struct s_img
 	int		bits;
 	int		line;
 	int		endian;
-	int		height;
+	int		high;
 	int		width;
 }	t_img;
 
@@ -92,18 +74,13 @@ typedef struct s_data
 	double		ray_y;
 	double		rad_p;
 	double		rad_ray;
-	void	*prova_E;
-	int		bpp;
-	int		size_line;
-	int		endian;
-	char	*img_data;
-	void	*prova_W;
-	void	*prova_N;
-	void	*prova_S;
+	t_img	N;
+	t_img	S;
+	t_img	E;
+	t_img	W;
 	t_infos		*info_list;
 	t_mini		mini;
 	t_player	player;
-	t_xpm		xpm;
 }t_data;
 
 #endif

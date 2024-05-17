@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:54:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/10 15:14:51 by jcardina         ###   ########.fr       */
+/*   Updated: 2024/05/17 14:54:53 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,12 +119,15 @@ char	**matrix_newline(char **matrix, char *str)
 	return (newmatrix);
 }
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+int	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
 	char	*dst;
 
+	if(y >= 450 || y < 0)
+		return (0);
 	dst = data->mini.addr + (y * data->mini.line_length + x * (data->mini.bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
+	return (0);
 }
 
 int	create_trgb(int t, int r, int g, int b)

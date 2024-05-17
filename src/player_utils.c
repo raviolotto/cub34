@@ -6,19 +6,15 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:05:21 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/17 11:25:15 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/17 17:18:29 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/cub3d.h"
-/*
-definisce la direzione e salva info sulla direzione del player.
-*/
-void	player_dir(t_data *data)
-{
-	char	c;
 
-	c = data->player.c;
+
+void	player_dir(t_data *data, char c)
+{
 	if (c == 'W')
 		data->player.last_mov_ang = 1800;
 	else if (c == 'E')
@@ -29,12 +25,14 @@ void	player_dir(t_data *data)
 		data->player.last_mov_ang = 720;
 }
 
-void	player_pos(t_data *data)
+int	player_pos(t_data *data)
 {
 	int	y;
 	int	x;
+	int flag;
 
 	y = -1;
+	flag = 0;
 	while(data->map[++y])
 	{
 		x = 0;
@@ -43,13 +41,15 @@ void	player_pos(t_data *data)
 			if(data->map[y][x] == 'N' || data->map[y][x] == 'S'
 				|| data->map[y][x] == 'E' || data->map[y][x] == 'W')
 				{
+					if(flag == 1)
+						return (0);
 					data->player.pos_x = (float)(x + 0.5);
 					data->player.pos_y = y + 0.5;
-					data->player.c = data->map[y][x];
-					player_dir(data);
-					return ;
+					player_dir(data, data->map[y][x]);
+					flag = 1;
 				}
 			x++;
 		}
 	}
+	return(flag);
 }
