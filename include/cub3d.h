@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/17 17:04:49 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/18 13:05:00 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@
 
 //int		ft_wasd(int command, t_data *data);
 int		ft_floor(double i);
+int		iswhite(char c);
 int		parser(int ac, char **av, t_data *data);
 int		lister(t_data *data);
 int		check_info(char *str);
+int		check_assets(t_data *data);
 int		check_info2(char **info);
 int		check_map(t_data *map);
 int		color_control(t_infos *infos);
@@ -58,8 +60,9 @@ void	ft_fakeray(t_data *data, int i);
 void	ft_raycast2(t_data *data);
 int		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		create_trgb(int t, int r, int g, int b);
-void	fake_assests_init(t_data *data);
+void	assests_init(t_data *data);
 t_infos *find_in_list(t_infos *infos, int what);
+void	matrix_adderal(t_data *data, char *str);
 
 #endif
 

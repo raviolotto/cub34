@@ -3,42 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   info_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:21:43 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/17 17:18:48 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/18 12:32:49 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void	print_list(t_infos *node)
-{
-	t_infos	*tmp;
+// void	print_list(t_infos *node)
+// {
+// 	t_infos	*tmp;
 
-	tmp = node;
-	while(tmp)
-	{
-		ft_printf("%d\n", tmp->what);
-		print_matrix(tmp->str);
-		if(tmp->what == 6 || tmp->what == 7)
-			print_matrix(tmp->color);
-		tmp = tmp->next;
-		ft_printf("---------------\n");
-	}
-}
+// 	tmp = node;
+// 	while (tmp)
+// 	{
+// 		ft_printf("%d\n", tmp->what);
+// 		print_matrix(tmp->str);
+// 		if (tmp->what == 6 || tmp->what == 7)
+// 			print_matrix(tmp->color);
+// 		tmp = tmp->next;
+// 		ft_printf("---------------\n");
+// 	}
+// }
 
-t_infos *newnode(char *str)
+t_infos	*newnode(char *str)
 {
-	t_infos *node;
+	t_infos	*node;
 
 	node = malloc(sizeof(t_infos));
 	node->str = ft_split(str, ' ');
 	node->next = NULL;
 	node->what = check_info2(node->str);
-		if(node->what == 6 || node->what == 7)
-			node->color = ft_split(node->str[1], ',');
-	return(node);
+	if (node->what == 6 || node->what == 7)
+		node->color = ft_split(node->str[1], ',');
+	return (node);
 }
 
 void	node_adderal(t_data *data, t_infos *node)
@@ -46,7 +46,7 @@ void	node_adderal(t_data *data, t_infos *node)
 	t_infos	*tmp;
 
 	tmp = data->info_list;
-	while(tmp->next != NULL)
+	while (tmp->next != NULL)
 		tmp = tmp->next;
 	tmp->next = node;
 }
@@ -57,9 +57,9 @@ int	lister(t_data *data)
 	t_infos	*tmp;
 
 	matrix = data->info;
-	while(*matrix)
+	while (*matrix)
 	{
-		if(data->info_list == NULL)
+		if (data->info_list == NULL)
 		{
 			tmp = newnode(*matrix);
 			data->info_list = tmp;
@@ -84,15 +84,14 @@ void	map_size(t_data *data)
 
 	mem = 0;
 	y = -1;
-	while(data->map[++y])
+	while (data->map[++y])
 	{
 		x = 0;
-		while(data->map[y][x])
+		while (data->map[y][x])
 			x++;
-		if(mem < x)
+		if (mem < x)
 			mem = x;
 	}
 	data->map_h = y - 1;
 	data->map_l = mem ;
 }
-

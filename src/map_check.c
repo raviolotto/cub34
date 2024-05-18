@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:22:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/17 17:17:40 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/18 13:05:43 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,11 @@ int	catch_info(t_data *data, char **line)
 	return (info_counter);
 }
 
-void	matrix_adderal(t_data *data, char *str)
-{
-	if(data->map == NULL)
-	{
-		data->map = ft_calloc(sizeof(char *), 2);
-		data->map[0] = ft_strdup(str);
-	}
-	else
-		data->map = matrix_newline(data->map, str);
-}
-
 void	catch_map(t_data *data, char **line)
 {
 	while (*line)
 	{
-		if(ft_strchr(*line, '1') != NULL)
+		if (ft_strchr(*line, '1') != NULL)
 			matrix_adderal(data, *line);
 		free(*line);
 		*line = get_next_line(data->fd);
@@ -71,14 +60,14 @@ int	read_data(char *name, t_data *data)
 	catch_map(data, &line);
 	if (check_map(data) == 1)
 		return (write(2, "error\ninvalid map\n", 18), 1);
-	if(check_info2(data->info) == 1)
+	if (check_info2(data->info) == 1)
 		return (write(2, "Error\nnot enouth info\n", 22), 1);
 	return (0);
 }
 
-int file_name(char *name)
+int	file_name(char *name)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen(name);
 	len = len - 4;
@@ -89,7 +78,6 @@ int file_name(char *name)
 
 int	parser(int ac, char **av, t_data *data)
 {
-
 	if (ac != 2 || file_name(av[1]) == 1)
 		return (write(2, "error\n dumb input\n", 17), 1);
 	if (read_data(av[1], data) == 1)
@@ -99,5 +87,7 @@ int	parser(int ac, char **av, t_data *data)
 	map_size(data);
 	if (!player_pos(data))
 		return (write(2, "error:\n bad player\n", 19), 1);
+	if (check_assets(data) == 1)
+		return (1);
 	return (0);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+         #
+#    By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2024/05/15 11:42:51 by mcamilli         ###   ########.fr        #
+#    Updated: 2024/05/18 12:36:28 by jacopo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,17 +18,16 @@ PRINTF = lib/ft_printf/libftprintf.a
 
 src = \
 	cub3d.c\
-	./src/start.c\
 	./src/map_check.c\
 	./src/map_check1.c\
 	./src/info_utils.c\
 	./src/utils.c\
 	./src/info_check.c\
 	./src/player_utils.c\
+	./src/utils2.c\
 	./lib/gnl/get_next_line.c\
 	./lib/gnl/get_next_file.c\
 	./src/hooknmove.c\
-	./src/hooknmove2.c\
 	./ray/ray1.c\
 	./ray/ray2.c\
 

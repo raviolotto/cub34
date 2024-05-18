@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   player_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:05:21 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/17 17:18:29 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/18 12:28:43 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/cub3d.h"
-
+#include "../include/cub3d.h"
 
 void	player_dir(t_data *data, char c)
 {
@@ -29,27 +28,27 @@ int	player_pos(t_data *data)
 {
 	int	y;
 	int	x;
-	int flag;
+	int	flag;
 
 	y = -1;
 	flag = 0;
-	while(data->map[++y])
+	while (data->map[++y])
 	{
 		x = 0;
-		while(data->map[y][x])
+		while (data->map[y][x])
 		{
-			if(data->map[y][x] == 'N' || data->map[y][x] == 'S'
+			if (data->map[y][x] == 'N' || data->map[y][x] == 'S'
 				|| data->map[y][x] == 'E' || data->map[y][x] == 'W')
-				{
-					if(flag == 1)
-						return (0);
-					data->player.pos_x = (float)(x + 0.5);
-					data->player.pos_y = y + 0.5;
-					player_dir(data, data->map[y][x]);
-					flag = 1;
-				}
+			{
+				if (flag == 1)
+					return (0);
+				data->player.pos_x = (float)(x + 0.5);
+				data->player.pos_y = y + 0.5;
+				player_dir(data, data->map[y][x]);
+				flag = 1;
+			}
 			x++;
 		}
 	}
-	return(flag);
+	return (flag);
 }

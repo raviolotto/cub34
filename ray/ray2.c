@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ray2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 14:14:40 by mcamilli          #+#    #+#             */
-/*   Updated: 2024/05/17 16:48:56 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/18 11:55:37 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void fake_assests_init(t_data *data)
+void assests_init(t_data *data)
 {
 	int x;
 	int y;

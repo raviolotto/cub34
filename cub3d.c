@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:18:50 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/14 12:08:05 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/18 12:34:34 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,12 @@ void	init(t_data *data)
 	data->ray_uncasted =0;
 }
 
-int	otherexit(void)
+int	exit_point(t_data *data)
 {
+	mlx_destroy_image(data->mini.mlx, data->mini.img);
+	mlx_destroy_window(data->mini.mlx, data->mini.mlx_win);
+	free_all(data);
+	printf("ciaoooo");
 	exit(0);
 }
 
@@ -42,27 +46,15 @@ int main(int ac, char **av)
 		free_all(&data);
 		return(1);
 	}
-	//debuginfo
-/*	print_list(data.info_list);
-	printf(" pos x player%f\n", data.player.pos_x);
-	printf(" pos y player%f\n", data.player.pos_y);
-	printf(" data.map_h = %d, data map_l = %d\n", data.map_h, data.map_l);
-	print_matrix(data.map);*/
-	//fine debug info
-	if(1)
-	{
-
-		data.mini.mlx = mlx_init();
-		data.mini.mlx_win = mlx_new_window(data.mini.mlx ,SCREEN_W, SCREEN_H, "cubitron");
-		data.mini.img = mlx_new_image(data.mini.mlx, SCREEN_W, SCREEN_H);
-		data.mini.addr = mlx_get_data_addr(data.mini.img, &data.mini.bits_per_pixel, &data.mini.line_length, &data.mini.endian);
-		fake_assests_init(&data);
-		ft_raycast1(&data);
-		mlx_hook(data.mini.mlx_win, 17, 0, exit_point, &data);
-		mlx_hook(data.mini.mlx_win, 2, 1L<<0, controls_working, &data);
-		mlx_key_hook(data.mini.mlx_win, controls_working, &data);
-		mlx_loop(data.mini.mlx);
-		return(1);
-	}
+	data.mini.mlx = mlx_init();
+	data.mini.mlx_win = mlx_new_window(data.mini.mlx ,SCREEN_W, SCREEN_H, "cubitron");
+	data.mini.img = mlx_new_image(data.mini.mlx, SCREEN_W, SCREEN_H);
+	data.mini.addr = mlx_get_data_addr(data.mini.img, &data.mini.bits_per_pixel, &data.mini.line_length, &data.mini.endian);
+	assests_init(&data);
+	ft_raycast1(&data);
+	mlx_hook(data.mini.mlx_win, 17, 0, exit_point, &data);
+	mlx_hook(data.mini.mlx_win, 2, 1L<<0, controls_working, &data);
+	mlx_key_hook(data.mini.mlx_win, controls_working, &data);
+	mlx_loop(data.mini.mlx);
 	return (0);
 }
