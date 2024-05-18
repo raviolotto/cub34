@@ -3,30 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   info_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:21:43 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/18 12:32:49 by jacopo           ###   ########.fr       */
+/*   Updated: 2024/05/18 17:40:00 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-
-// void	print_list(t_infos *node)
-// {
-// 	t_infos	*tmp;
-
-// 	tmp = node;
-// 	while (tmp)
-// 	{
-// 		ft_printf("%d\n", tmp->what);
-// 		print_matrix(tmp->str);
-// 		if (tmp->what == 6 || tmp->what == 7)
-// 			print_matrix(tmp->color);
-// 		tmp = tmp->next;
-// 		ft_printf("---------------\n");
-// 	}
-// }
 
 t_infos	*newnode(char *str)
 {

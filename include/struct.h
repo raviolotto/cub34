@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:25:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/17 16:39:14 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/18 18:25:39 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 
 typedef struct s_infos
 {
-	int	what; //  2= EA  3=NO 4=SO 5=WE 6=C 7=F
-	char **str;
-	char **color;
-	struct s_infos *next;
-}t_infos;
+	int				what;
+	char			**str;
+	char			**color;
+	struct s_infos	*next;
+}	t_infos;
 
 typedef struct s_player
 {
@@ -34,10 +34,9 @@ typedef struct s_player
 	double	plane_y;
 	double	mov_ang;
 	double	last_mov_ang;
-	int		AB_12;
-	int		NSEW; //1n 2s 3e 4w
-}t_player;
-
+	int		ab_12;
+	int		nsew;
+}	t_player;
 
 typedef struct s_img
 {
@@ -59,7 +58,7 @@ typedef struct s_mini
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}t_mini;
+}	t_mini;
 
 typedef struct s_data
 {
@@ -68,19 +67,25 @@ typedef struct s_data
 	int			map_l;
 	char		**map;
 	char		**info;
-	int			ray_uncasted; //rdebug per raycast;
+	int			ray_uncasted;
 	double		ray_lenght;
 	double		ray_x;
 	double		ray_y;
 	double		rad_p;
 	double		rad_ray;
-	t_img	N;
-	t_img	S;
-	t_img	E;
-	t_img	W;
+	int			newx1a;
+	double		newya;
+	int			newy1b;
+	double		newxb;
+	double		hypotena;
+	double		hypotenb;
+	t_img		n;
+	t_img		s;
+	t_img		e;
+	t_img		w;
 	t_infos		*info_list;
 	t_mini		mini;
 	t_player	player;
-}t_data;
+}	t_data;
 
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+         #
+#    By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2024/05/18 12:36:28 by jacopo           ###   ########.fr        #
+#    Updated: 2024/05/18 18:39:08 by mcamilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,9 @@ src = \
 	./src/hooknmove.c\
 	./ray/ray1.c\
 	./ray/ray2.c\
+	./ray/ray0.c\
+	./ray/ray_lenght.c\
+	./ray/set_ray.c\
 
 OBJ = $(src:%.c=%.o)
 

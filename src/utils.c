@@ -3,51 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:54:48 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/18 12:37:04 by jacopo           ###   ########.fr       */
+/*   Updated: 2024/05/18 17:39:53 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-
-// char	*super_strjoin(char const *s1, char const *s2)
-// {
-// 	size_t	size;
-// 	int		i;
-// 	size_t	j;
-// 	char	*str;
-
-// 	if (!s1 || !s2)
-// 		return (NULL);
-// 	size = (ft_strlen(s1)) + (ft_strlen(s2)) + 1;
-// 	str = malloc(sizeof(char) * size);
-// 	if (!str)
-// 		return (NULL);
-// 	i = -1;
-// 	j = 0;
-// 	while (s1[++i])
-// 		str[j++] = s1[i];
-// 	i = -1;
-// 	while (s2[++i])
-// 		str[j++] = s2[i];
-// 	str[j] = '\0';
-// 	free((void *)s1);
-// 	return (str);
-// }
-
-//la protremmo anche eliminare
-// void	print_matrix(char **matrix)
-// {
-// 	write(1, "\n", 1);
-// 	while (*matrix)
-// 	{
-// 		ft_putstr_fd(*matrix, 1);
-// 		write(1, "\n", 1);
-// 		matrix++;
-// 	}
-// }
 
 void	free_matrix(char **matrix)
 {

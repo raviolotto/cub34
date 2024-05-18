@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/18 13:05:00 by jacopo           ###   ########.fr       */
+/*   Updated: 2024/05/18 18:37:17 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,22 @@
 # define SCREEN_H 450
 # define RED	"\033[31m"
 # define RESET	"\033[0m"
-//mi servono ?
-# define TILE_SIZE 32
-# define ROTATION_SPEED 0.045
-# define PLAYER_SPEED 4
 # define CONST_RAD 0.001454441043329
 # define PI 3.141592653589793
 
-//int		ft_wasd(int command, t_data *data);
+void	ft_set_ray_mag_3239(t_data *data, double q, double m, int i);
+void	ft_set_ray_min_3239(t_data *data, double q, double m, int i);
+void	ft_set_ray_min_2160(t_data *data, double q, double m, int i);
+void	ft_set_ray_min_1079(t_data *data, double q, double m, int i);
+double	ft_ray_on_plane(t_data *data, double hypo_lenght);
+double	ft_ray_lenght_mag_3239(t_data *data, double q, double m);
+double	ft_ray_lenght_min_3239(t_data *data, double q, double m);
+double	ft_ray_lenght_min_2160(t_data *data, double q, double m);
+double	ft_ray_lenght_min_1079(t_data *data, double q, double m);
+void	ray_loop_b(t_data *data, double q, double m, int dir);
+void	ray_loop_a(t_data *data, double q, double m, int dir);
+int		control_b(t_data *data, int dir);
+int		control_a(t_data *data, int dir);
 int		ft_floor(double i);
 int		iswhite(char c);
 int		parser(int ac, char **av, t_data *data);
@@ -61,10 +69,7 @@ void	ft_raycast2(t_data *data);
 int		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		create_trgb(int t, int r, int g, int b);
 void	assests_init(t_data *data);
-t_infos *find_in_list(t_infos *infos, int what);
+t_infos	*find_in_list(t_infos *infos, int what);
 void	matrix_adderal(t_data *data, char *str);
 
 #endif
-
-//appunti									  __A__
-//aggiungere controllo per piú di un player <(" _ ")>
