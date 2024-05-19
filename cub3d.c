@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:18:50 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/18 18:14:33 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/19 10:27:42 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	exit_point(t_data *data)
 	mlx_destroy_image(data->mini.mlx, data->mini.img);
 	mlx_destroy_window(data->mini.mlx, data->mini.mlx_win);
 	free_all(data);
-	printf("mcamilli Il Peruviano vi saluta con dolcezza");
+	printf("mcamilli Il Peruviano vi saluta con dolcezza\n");
 	exit(0);
 }
 

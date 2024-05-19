@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/18 18:37:17 by mcamilli         ###   ########.fr       */
+/*   Updated: 2024/05/19 10:20:40 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ int		iswhite(char c);
 int		parser(int ac, char **av, t_data *data);
 int		lister(t_data *data);
 int		check_info(char *str);
-int		check_assets(t_data *data);
 int		check_info2(char **info);
+int		check_info3(char **info);
+int		check_assets(t_data *data);
 int		check_map(t_data *map);
 int		color_control(t_infos *infos);
 int		start(t_data *data);

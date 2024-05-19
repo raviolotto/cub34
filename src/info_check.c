@@ -6,7 +6,7 @@
 /*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:23:47 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/18 12:25:01 by jacopo           ###   ########.fr       */
+/*   Updated: 2024/05/19 10:19:45 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	color_control(t_infos *infos)
 
 int	check_info(char *str)
 {
-	while (*str == ' ')
+	while (iswhite(*str))
 		str++;
 	if ((!ft_strncmp(str, "EA", 2) || !ft_strncmp(str, "NO", 2)
 			|| !ft_strncmp(str, "SO", 2) || !ft_strncmp(str, "WE", 2))
@@ -56,8 +56,8 @@ int	src_in_matrix(char **matrix, char *str)
 	while (*matrix)
 	{
 		point = *matrix;
-		while (*point == ' ')
-			str++;
+		while (iswhite(*point))
+			point++;
 		if (!ft_strncmp(point, str, ft_strlen(str)))
 			return (1);
 		matrix++;
@@ -81,6 +81,18 @@ int	check_info2(char **info)
 		return (7);
 	else
 		return (1);
+}
+
+int check_info3(char **info)
+{
+	if (src_in_matrix(info, "EA"))
+		if (src_in_matrix(info, "NO"))
+			if (src_in_matrix(info, "SO"))
+				if (src_in_matrix(info, "WE"))
+					if (src_in_matrix(info, "C"))
+						if (src_in_matrix(info, "F"))
+							return(1);
+	return (0);
 }
 
 int	check_assets(t_data *data)

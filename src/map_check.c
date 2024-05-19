@@ -6,7 +6,7 @@
 /*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:22:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/18 13:05:43 by jacopo           ###   ########.fr       */
+/*   Updated: 2024/05/19 10:21:02 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,13 @@ int	read_data(char *name, t_data *data)
 		return (write(2, "Error\nempty file\n", 18), 1);
 	if (catch_info(data, &line) != 6)
 		return (write(2, "Error\nnot enouth info\n", 22), 1);
+	ft_putstr_fd("info prese\n", 1);
 	catch_map(data, &line);
+	ft_putstr_fd("mappa presa\n", 1);
 	if (check_map(data) == 1)
 		return (write(2, "error\ninvalid map\n", 18), 1);
-	if (check_info2(data->info) == 1)
+	ft_putstr_fd("mappa controllata\n", 1);
+	if (check_info3(data->info) == 0)
 		return (write(2, "Error\nnot enouth info\n", 22), 1);
 	return (0);
 }
@@ -82,6 +85,7 @@ int	parser(int ac, char **av, t_data *data)
 		return (write(2, "error\n dumb input\n", 17), 1);
 	if (read_data(av[1], data) == 1)
 		return (1);
+	write(1, "a\n", 2);
 	if (lister(data) == 1)
 		return (1);
 	map_size(data);
