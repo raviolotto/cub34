@@ -6,7 +6,7 @@
 /*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:21:57 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/18 13:03:03 by jacopo           ###   ########.fr       */
+/*   Updated: 2024/05/20 09:55:35 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,17 @@ int	check_map(t_data *map)
 			}
 		}
 	}
+	return (0);
+}
+
+int	check_info3(char **info)
+{
+	if (src_in_matrix(info, "EA"))
+		if (src_in_matrix(info, "NO"))
+			if (src_in_matrix(info, "SO"))
+				if (src_in_matrix(info, "WE"))
+					if (src_in_matrix(info, "C"))
+						if (src_in_matrix(info, "F"))
+							return (1);
 	return (0);
 }

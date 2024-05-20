@@ -6,7 +6,7 @@
 /*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:22:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/20 09:43:43 by jacopo           ###   ########.fr       */
+/*   Updated: 2024/05/20 09:55:20 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	catch_map(t_data *data, char **line)
 	ft_putstr_fd(*line, 1);
 	while (*line)
 	{
-		if(check_info(*line) == 1)
+		if (check_info(*line) == 1)
 			return (0);
 		if (ft_strchr(*line, '1') != NULL)
 			matrix_adderal(data, *line);

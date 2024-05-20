@@ -6,7 +6,7 @@
 /*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:23:47 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/19 10:19:45 by jacopo           ###   ########.fr       */
+/*   Updated: 2024/05/20 09:55:25 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,6 @@ int	check_info2(char **info)
 		return (7);
 	else
 		return (1);
-}
-
-int check_info3(char **info)
-{
-	if (src_in_matrix(info, "EA"))
-		if (src_in_matrix(info, "NO"))
-			if (src_in_matrix(info, "SO"))
-				if (src_in_matrix(info, "WE"))
-					if (src_in_matrix(info, "C"))
-						if (src_in_matrix(info, "F"))
-							return(1);
-	return (0);
 }
 
 int	check_assets(t_data *data)

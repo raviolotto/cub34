@@ -6,7 +6,7 @@
 /*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:20:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/19 10:20:40 by jacopo           ###   ########.fr       */
+/*   Updated: 2024/05/20 09:57:14 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	ft_raycast1(t_data *data);
 void	ft_fakeray(t_data *data, int i);
 void	ft_raycast2(t_data *data);
 int		my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		src_in_matrix(char **matrix, char *str);
 int		create_trgb(int t, int r, int g, int b);
 void	assests_init(t_data *data);
 t_infos	*find_in_list(t_infos *infos, int what);
