@@ -6,7 +6,7 @@
 /*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:22:02 by jcardina          #+#    #+#             */
-/*   Updated: 2024/05/20 09:55:20 by jacopo           ###   ########.fr       */
+/*   Updated: 2024/05/20 10:12:30 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	catch_info(t_data *data, char **line)
 
 int	catch_map(t_data *data, char **line)
 {
-	ft_putstr_fd(*line, 1);
 	while (*line)
 	{
 		if (check_info(*line) == 1)
@@ -87,7 +86,6 @@ int	parser(int ac, char **av, t_data *data)
 		return (write(2, "error\n dumb input\n", 17), 1);
 	if (read_data(av[1], data) == 1)
 		return (1);
-	write(1, "a\n", 2);
 	if (lister(data) == 1)
 		return (1);
 	map_size(data);
